@@ -121,4 +121,5 @@ $(() => {
       currentPage = currentPageMemo
     }
   })
+  $(`[type='radio']`).on(`click`, e => currentPage.answer = e.target.value)
 })
