@@ -1,0 +1,33 @@
+:root {
+  --mist: #fdfeff;
+  --mist-trans: #fdfeff99;
+  --castiron: #332727;
+  --cerulean: #05f;
+  --bg-color: var(--mist);
+  --fg-color: var(--castiron);
+  --header-bg-color: var(--mist-trans);
+  --link-fg-color: var(--cerulean);
+}
+html { 
+  background: var(--bg-color);
+  color: var(--fg-color); 
+}
+body {
+  &, header {
+    display: flex;
+    flex-direction: column;
+  }
+  margin: auto;
+  width: calc(100vw - 20px);
+  height: 100vh;
+  header {
+    display: flex;
+    flex-direction: column;
+    background: var(--header-color);
+    height: 100px;
+    justify-content: center;
+    h1 {
+      margin: 0;
+    }
+  }
+}

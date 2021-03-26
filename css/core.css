@@ -1,1 +1,51 @@
-/* No CSS *//*# sourceMappingURL=core.css.map */
+:root {
+  --mist: #fdfeff;
+  --mist-trans: #fdfeff99;
+  --castiron: #332727;
+  --cerulean: #05f;
+  --bg-color: var(--mist);
+  --fg-color: var(--castiron);
+  --header-bg-color: var(--mist-trans);
+  --link-fg-color: var(--cerulean);
+}
+
+html {
+  background: var(--bg-color);
+  color: var(--fg-color);
+}
+
+body {
+  margin: auto;
+  width: calc(100vw - 20px);
+  height: 100vh;
+}
+
+body, body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: var(--header-color);
+  height: 100px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body header h1 {
+  margin: 0;
+}
+/*# sourceMappingURL=core.css.map */
