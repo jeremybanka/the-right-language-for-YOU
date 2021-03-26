@@ -88,6 +88,11 @@ function getNextPage(pagesUnanswered, pagesAnswered, currentPage) {
   if(currentPage) pagesAnswered.push(currentPage)
   return pagesUnanswered.pop()
 }
+function getPrevPage(pagesUnanswered, pagesAnswered, currentPage) {
+  if(pagesAnswered.length === 0) return
+  if(currentPage) pagesUnanswered.push(currentPage)
+  return pagesAnswered.pop()
+}
 
 $(() => {
   const pagesUnanswered = QUIZ_PAGES
@@ -99,6 +104,16 @@ $(() => {
     e.preventDefault()
     const currentPageMemo = currentPage
     currentPage = getNextPage(pagesUnanswered, pagesAnswered, currentPage)
+    if(currentPage) {
+      cleanUp()
+      printPage(currentPage)
+    } else {
+      currentPage = currentPageMemo
+    }
+  })
+  $(`button[type='button']`).on(`click`, () => {
+    const currentPageMemo = currentPage
+    currentPage = getPrevPage(pagesUnanswered, pagesAnswered, currentPage)
     if(currentPage) {
       cleanUp()
       printPage(currentPage)
