@@ -47,13 +47,17 @@ body {
       width: calc(100% - 20px);
       max-width: 470px;
       label {
-        display: inline-block;
+        display: inline-flex;
+        justify-content: space-between;
         position: relative;
         width: calc(100% - 40px);
         padding: 20px;
         font-size: 21px;
         ~ label {
           margin-top: 20px;
+        }
+        span {
+          width: calc(100% - 40px)
         }
         .border, input[type="radio" i] {
           border: 2px solid var(--medium-shade);
@@ -71,7 +75,7 @@ body {
           cursor: default;
           appearance: unset;
           box-sizing: border-box;
-          margin: 3px 3px 0px 5px;
+          margin: 5px 3px 0px 5px;
           box-sizing: border-box;
           outline: none;
           &:checked {
@@ -115,7 +119,7 @@ body {
       ~ button { margin-left: 0 }
       &[type='button'] {
         background: var(--bg-color);
-        border: 3px solid var(--fg-color);
+        border: 2px solid var(--fg-color);
         &:before {
           content: 'h';
         }
