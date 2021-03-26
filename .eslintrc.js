@@ -85,7 +85,7 @@ module.exports = {
         enforceForRenamedProperties: false,
       },
     ],
-    'quotes': ['error', 'single'],
+    'quotes': ['error', 'backtick'],
     'quote-props': ['error', 'consistent', { unnecessary: false }],
     'semi': ['error', 'never'],
     'semi-style': ['error', 'first'],
