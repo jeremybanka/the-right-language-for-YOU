@@ -30,4 +30,14 @@ body {
       margin: 0;
     }
   }
+  main {
+    #question {
+      display: inline-flex;
+      width: 100%;
+      margin-top: -15px;
+      background: var(--bg-color);
+      border: 3px dotted var(--fg-color);
+      box-sizing: border-box;
+    }
+  }
 }
