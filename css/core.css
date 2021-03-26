@@ -1,4 +1,5 @@
 :root {
+  --medium-shade: #3333;
   --mist: #fdfeff;
   --mist-trans: #fdfeff99;
   --castiron: #332727;
@@ -59,5 +60,125 @@ body main #question {
   border: 3px dotted var(--fg-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: auto;
+  width: calc(100% - 20px);
+  max-width: 470px;
+}
+
+body main form label {
+  display: inline-block;
+  position: relative;
+  width: calc(100% - 40px);
+  padding: 20px;
+  font-size: 21px;
+}
+
+body main form label ~ label {
+  margin-top: 20px;
+}
+
+body main form label .border, body main form label input[type="radio" i] {
+  border: 2px solid var(--medium-shade);
+}
+
+body main form label .border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+body main form label input[type="radio" i] {
+  height: 15px;
+  width: 15px;
+  cursor: default;
+  -webkit-appearance: unset;
+     -moz-appearance: unset;
+          appearance: unset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 3px 3px 0px 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body main form label input[type="radio" i]:checked {
+  background: var(--fg-color);
+}
+
+body main form label input[type="radio" i]:checked ~ .border {
+  border-color: var(--fg-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-width: 2px;
+}
+
+body main form label input::before {
+  height: 15px;
+  width: 15px;
+  background: var(--fg-color);
+}
+
+body footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  width: calc(100vw - 20px);
+  height: 150px;
+  bottom: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+body footer button {
+  font-family: 'Icon';
+  font-size: 30px;
+  font-variation-settings: 'wght' 150;
+  height: 70px;
+  width: 70px;
+  margin: 40px;
+  padding: 0;
+}
+
+body footer button ~ button {
+  margin-left: 0;
+}
+
+body footer button[type='button'] {
+  background: var(--bg-color);
+  border: 3px solid var(--fg-color);
+}
+
+body footer button[type='button']:before {
+  content: 'h';
+}
+
+body footer button[type='submit'] {
+  background: var(--fg-color);
+  color: var(--bg-color);
+  border: none;
+}
+
+body footer button[type='submit']:before {
+  content: 'l';
 }
 /*# sourceMappingURL=core.css.map */

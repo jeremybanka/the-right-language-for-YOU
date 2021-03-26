@@ -1,4 +1,5 @@
 :root {
+  --medium-shade: #3333;
   --mist: #fdfeff;
   --mist-trans: #fdfeff99;
   --castiron: #332727;
@@ -38,6 +39,95 @@ body {
       background: var(--bg-color);
       border: 3px dotted var(--fg-color);
       box-sizing: border-box;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      width: calc(100% - 20px);
+      max-width: 470px;
+      label {
+        display: inline-block;
+        position: relative;
+        width: calc(100% - 40px);
+        padding: 20px;
+        font-size: 21px;
+        ~ label {
+          margin-top: 20px;
+        }
+        .border, input[type="radio" i] {
+          border: 2px solid var(--medium-shade);
+        }
+        .border {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;            
+        }
+        input[type="radio" i] {
+          height: 15px;
+          width: 15px;
+          cursor: default;
+          appearance: unset;
+          box-sizing: border-box;
+          margin: 3px 3px 0px 5px;
+          box-sizing: border-box;
+          outline: none;
+          &:checked {
+            background: var(--fg-color);
+            ~ .border {
+              border-color: var(--fg-color);
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;            
+              border-width: 2px;
+            }
+          }
+        }
+        input::before {
+          height: 15px;
+          width: 15px;
+          background: var(--fg-color);
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    position: fixed;
+    width: calc(100vw - 20px);
+    height: 150px;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+    button {
+      font-family: 'Icon';
+      font-size: 30px;
+      font-variation-settings: 'wght' 150;
+      height: 70px;
+      width: 70px;
+      margin: 40px;
+      padding: 0;
+      ~ button { margin-left: 0 }
+      &[type='button'] {
+        background: var(--bg-color);
+        border: 3px solid var(--fg-color);
+        &:before {
+          content: 'h';
+        }
+      }
+      &[type='submit'] {
+        background: var(--fg-color);
+        color: var(--bg-color);
+        border: none;
+        &:before {
+          content: 'l';
+        }
+      }
     }
   }
 }
