@@ -158,6 +158,24 @@ body footer {
       align-content: flex-start;
 }
 
+body footer #message {
+  position: fixed;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-delay: 4s;
+          transition-delay: 4s;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+}
+
+body footer #message:hidden {
+  display: none;
+}
+
+body footer #message:fade-out {
+  opacity: 0;
+}
+
 body footer button {
   font-family: 'Icon';
   font-size: 30px;

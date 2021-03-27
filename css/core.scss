@@ -108,6 +108,16 @@ body {
     justify-content: space-between;
     align-items: center;
     align-content: flex-start;
+    #message {
+      position: fixed;
+      transition-property: opacity;
+      transition-delay: 4s;
+      transition-duration: 1s;
+      &:hidden { display: none }
+      &:fade-out {
+        opacity: 0;
+      }
+    }
     button {
       font-family: 'Icon';
       font-size: 30px;
