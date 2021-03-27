@@ -15,6 +15,11 @@ const QUIZ_PAGES = [
           behind the scenes, giving the user powerful data and insights.
           `,
         scores: { js: 0, ruby: 2, hoon: 0 },
+        reply:
+          `
+          Nice! Sounds like you'll be interested in programming application
+          servers in a high-level language like Ruby!
+          `,
       },
       {
         text:
@@ -93,6 +98,10 @@ const QUIZ_PAGES = [
           Static
           `,
         scores: { js: 0, ruby: 0, hoon: 2 },
+        reply:
+          `
+          Sweet! Sounds like you know a lot about programming!
+          `,
       },
       {
         text:
@@ -100,6 +109,10 @@ const QUIZ_PAGES = [
           Dynamic
           `,
         scores: { js: 2, ruby: 2, hoon: 0 },
+        reply:
+          `
+          Sweet! Sounds like you know a lot about programming!
+          `,
       },
     ],
   },
@@ -149,23 +162,17 @@ function getPrevPage(pagesUnanswered, pagesAnswered, currentPage) {
   if(currentPage) pagesUnanswered.push(currentPage)
   return pagesAnswered.pop()
 }
-
 function sendMessage(string) {
   const $message = $(`#message`)
   $message.removeClass().show()
   $(`#message`).text(string).addClass(`fade-out`)
-}
-function purge() {
-  $(`main`).empty()
-}
-function print($content) {
-  $(`main`).append($content)
 }
 function listenToRadio(currentPage) {
   $(`[type='radio']`).on(`click`, e => {
     currentPage.answerIdx = parseInt(e.target.value, 10)
   })
 }
+
 function $RadioButton({ id, idx, checked }) {
   const $radio = $(`<input type='radio'>`)
   $radio.attr(`name`, id).attr(`value`, idx)
@@ -207,38 +214,37 @@ $(() => {
   const pagesAnswered = []
   let currentPage
   currentPage = getNextPage(pagesUnanswered, pagesAnswered, currentPage)
-  print($QuizPage(currentPage))
+  $(`main`).empty()
+  $(`main`).append($QuizPage(currentPage))
   listenToRadio(currentPage)
-  $(`button[type='submit']`).on(`click`, e => {
+  $(`button`).on(`click`, e => {
     e.preventDefault()
-    const currentPageMemo = currentPage
-    currentPage = getNextPage(pagesUnanswered, pagesAnswered, currentPage)
+    const prevPageMemo = currentPage
+    currentPage = e.target.id === `next`
+      ? getNextPage(pagesUnanswered, pagesAnswered, currentPage)
+      : getPrevPage(pagesUnanswered, pagesAnswered, currentPage)
     if(currentPage) {
-      purge()
-      print($QuizPage(currentPage))
+      const { answerIdx } = prevPageMemo
+      if(typeof answerIdx !== `undefined`) {
+        const prevAnswer = prevPageMemo.possibleAnswers[answerIdx]
+        sendMessage(prevAnswer.reply)
+      }
+      $(`main`).empty()
+      $(`main`).append($QuizPage(currentPage))
       listenToRadio(currentPage)
-    } else {
-      const scoreSheet = scoreQuiz([...pagesAnswered, currentPageMemo])
+    } else if(pagesUnanswered.length === 0) {
+      const scoreSheet = scoreQuiz([...pagesAnswered, prevPageMemo])
       if(scoreSheet) {
         const winningLanguage = determineWinner(scoreSheet)
-        purge()
-        $(`footer`).hide()
-        print($ScorePage(winningLanguage))
+        $(`button`).hide()
+        $(`main`).empty()
+        $(`main`).append($ScorePage(winningLanguage))
       } else {
         sendMessage(`Finish the quiz before submitting!`)
-        currentPage = currentPageMemo
+        currentPage = prevPageMemo
       }
-    }
-  })
-  $(`button[type='button']`).on(`click`, () => {
-    const currentPageMemo = currentPage
-    currentPage = getPrevPage(pagesUnanswered, pagesAnswered, currentPage)
-    if(currentPage) {
-      purge()
-      print($QuizPage(currentPage))
-      listenToRadio(currentPage)
     } else {
-      currentPage = currentPageMemo
+      currentPage = prevPageMemo
     }
   })
 })

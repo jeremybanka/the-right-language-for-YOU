@@ -1,4 +1,5 @@
 :root {
+  --light-shade: #1111;
   --medium-shade: #3333;
   --mist: #fdfeff;
   --mist-trans: #fdfeff99;
@@ -15,13 +16,7 @@ html {
   color: var(--fg-color);
 }
 
-body {
-  margin: auto;
-  width: calc(100vw - 20px);
-  height: 100vh;
-}
-
-body, body header {
+body, header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,6 +24,12 @@ body, body header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+body {
+  margin: auto;
+  width: calc(100vw - 20px);
+  height: 100vh;
 }
 
 body header {
@@ -50,12 +51,25 @@ body header h1 {
   margin: 0;
 }
 
+body main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 body main #question, body main article {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
-  margin-top: -15px;
+  margin-top: -5px;
   background: var(--bg-color);
   border: 3px dotted var(--fg-color);
   -webkit-box-sizing: border-box;
@@ -67,6 +81,7 @@ body main #question, body main article {
 }
 
 body main #question {
+  max-width: 540px;
   border: 3px dotted var(--fg-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -89,6 +104,7 @@ body main form {
 }
 
 body main form label {
+  background-color: var(--mist-trans);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -206,6 +222,8 @@ body footer #message.fade-out {
 
 body footer button {
   font-family: 'Icon';
+  cursor: pointer;
+  outline: none;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   font-size: 30px;
@@ -235,5 +253,40 @@ body footer button[type='submit'] {
 
 body footer button[type='submit']:before {
   content: 'l';
+}
+
+button, label {
+  -webkit-transition-property: -webkit-transform box-shadow;
+  transition-property: -webkit-transform box-shadow;
+  transition-property: transform box-shadow;
+  transition-property: transform box-shadow, -webkit-transform box-shadow;
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+button:hover, button:focus, label:hover, label:focus {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+  -webkit-box-shadow: 0 0px 10px 0.5px var(--light-shade);
+          box-shadow: 0 0px 10px 0.5px var(--light-shade);
+}
+
+button:active, label:active {
+  -webkit-transform: scale(0.995);
+          transform: scale(0.995);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+button:hover, button:focus {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+button:active {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
 }
 /*# sourceMappingURL=core.css.map */

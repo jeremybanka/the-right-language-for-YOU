@@ -1,4 +1,5 @@
 :root {
+  --light-shade: #1111;
   --medium-shade: #3333;
   --mist: #fdfeff;
   --mist-trans: #fdfeff99;
@@ -13,11 +14,11 @@ html {
   background: var(--bg-color);
   color: var(--fg-color); 
 }
+body, header {
+  display: flex;
+  flex-direction: column;
+}
 body {
-  &, header {
-    display: flex;
-    flex-direction: column;
-  }
   margin: auto;
   width: calc(100vw - 20px);
   height: 100vh;
@@ -32,10 +33,13 @@ body {
     }
   }
   main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     #question, article {
       display: inline-flex;
       width: 100%;
-      margin-top: -15px;
+      margin-top: -5px;
       background: var(--bg-color);
       border: 3px dotted var(--fg-color);
       box-sizing: border-box;
@@ -45,6 +49,7 @@ body {
       list-style-type: '> ';
     }
     #question {
+      max-width: 540px;
       border: 3px dotted var(--fg-color);
       box-sizing: border-box;
     }
@@ -59,6 +64,7 @@ body {
       width: calc(100% - 20px);
       max-width: 470px;
       label {
+        background-color: var(--mist-trans);
         display: inline-flex;
         justify-content: space-between;
         position: relative;
@@ -141,6 +147,8 @@ body {
     }
     button {
       font-family: 'Icon';
+      cursor: pointer;
+      outline: none;
       flex-shrink: 0;
       font-size: 30px;
       font-variation-settings: 'wght' 150;
@@ -167,4 +175,24 @@ body {
       }
     }
   }
+}
+
+button, label {
+  transition-property: transform box-shadow;
+  transition-duration: 100ms;
+  transition-timing-function: ease-out;
+  &:hover, &:focus {
+    transform: scale(1.005);
+    box-shadow: 0 0px 10px 0.5px var(--light-shade);
+  }
+  &:active {
+    transform: scale(0.995);
+    box-shadow: none;
+  }
+}
+button:hover, button:focus {
+  transform: scale(1.01);
+}
+button:active {
+  transform: scale(0.99);
 }
