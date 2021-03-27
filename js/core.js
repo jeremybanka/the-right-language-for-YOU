@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 const LANGUAGE_NAMES = {
   js: `Javascript`,
   ruby: `Ruby`,
