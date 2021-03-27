@@ -50,7 +50,7 @@ body header h1 {
   margin: 0;
 }
 
-body main #question {
+body main #question, body main article {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -60,6 +60,21 @@ body main #question {
   border: 3px dotted var(--fg-color);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 24px;
+  padding: 20px;
+  padding-left: 60px;
+  list-style-type: '> ';
+}
+
+body main #question {
+  border: 3px dotted var(--fg-color);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body main article {
+  background: var(--fg-color);
+  color: var(--mist);
 }
 
 body main form {
@@ -84,6 +99,7 @@ body main form label {
   width: calc(100% - 40px);
   padding: 20px;
   font-size: 21px;
+  cursor: pointer;
 }
 
 body main form label ~ label {
@@ -151,33 +167,47 @@ body footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
 
 body footer #message {
-  position: fixed;
+  color: var(--bg-color);
+  background: var(--fg-color);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  margin-bottom: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 40px;
+  text-align: center;
+  pointer-events: none;
   -webkit-transition-property: opacity;
   transition-property: opacity;
-  -webkit-transition-delay: 4s;
-          transition-delay: 4s;
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s;
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
 }
 
-body footer #message:hidden {
+body footer #message.hidden {
   display: none;
 }
 
-body footer #message:fade-out {
+body footer #message.fade-out {
   opacity: 0;
 }
 
 body footer button {
   font-family: 'Icon';
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   font-size: 30px;
   font-variation-settings: 'wght' 150;
   height: 70px;
@@ -186,11 +216,8 @@ body footer button {
   padding: 0;
 }
 
-body footer button ~ button {
-  margin-left: 0;
-}
-
 body footer button[type='button'] {
+  margin-right: 20px;
   background: var(--bg-color);
   border: 2px solid var(--fg-color);
 }
@@ -200,6 +227,7 @@ body footer button[type='button']:before {
 }
 
 body footer button[type='submit'] {
+  margin-left: 20px;
   background: var(--fg-color);
   color: var(--bg-color);
   border: none;
