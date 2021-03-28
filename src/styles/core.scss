@@ -222,4 +222,14 @@ button:active {
   from { opacity: 1 }
   to   { opacity: 0 }
 }
-.hidden { opacity: 0; }
+#bg {
+  z-index: -100;
+  background: url('../images/bg-texture.svg');
+  background-size: cover;
+  display: inline-flex;
+  position: fixed;
+  height: 120vh;
+  top: -10vh;
+  width: 120vw;
+  left: -10vw;
+}
