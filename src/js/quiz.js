@@ -1,6 +1,10 @@
 /* eslint max-len: 0 */
 
-export default [
+export {
+  quizPages,
+  possibleResults,
+}
+const quizPages = [
   {
     id: `build`,
     question: `What do you want to build?`,
@@ -161,3 +165,33 @@ export default [
     ],
   },
 ]
+
+const possibleResults = {
+  js: {
+    id: `js`,
+    nameOfLanguage: `Javascript`,
+    description:
+      `
+      Javascript is the language of the web. It was commissioned for the Netscape Navigator browser as a way of bringing interactivity to then-static pages. Twenty-five years later, it defines the user experience of the internet.
+      `,
+    url: `https://developer.mozilla.org/en-US/docs/Web/JavaScript`,
+  },
+  ruby: {
+    id: `ruby`,
+    nameOfLanguage: `Ruby`,
+    description:
+      `
+      Ruby is a high-level, multi-paradigm language, which means you can do some really complicated stuff with it, like design other programming languages. Ruby is often used in data centers to process data for web apps.
+      `,
+    url: `https://www.ruby-lang.org/en/documentation/`,
+  },
+  hoon: {
+    id: `hoon`,
+    nameOfLanguage: `Hoon`,
+    description:
+      `
+      Hoon is a esoteric language designed for the peer-to-peer networking platform Urbit. Hoon is a functional language (meaning everything is input-output, with NO side-effects) with a highly idiosyncratic syntax made of what urbiters call 'runes.' |= 'bartis', ++ 'luslus',  and ?> 'wutgar', are a few of the many, many examples. Don't ask me what they do, because I don't remember. I just think hoon is pretty and would love to learn to write it one day.
+      `,
+    url: `https://urbit.org/docs/glossary/hoon/`,
+  },
+}

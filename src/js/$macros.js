@@ -21,8 +21,8 @@ function $printQuizPage(quizPage) {
   $addAnswerListeners(quizPage)
 }
 
-function $printScorePage(winningLanguage) {
-  const $scorePage = $makeScorePage(winningLanguage)
+function $printScorePage(quizResult) {
+  const $scorePage = $makeScorePage(quizResult)
   $hideButtons()
   $replaceMainContentWith($scorePage)
 }

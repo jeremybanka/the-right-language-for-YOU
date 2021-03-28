@@ -32,11 +32,6 @@ function scoreQuiz(pagesBehind) {
 }
 
 function determineWinner(scoreSheet) {
-  const languageNames = {
-    js: `Javascript`,
-    ruby: `Ruby`,
-    hoon: `Hoon`,
-  }
   let indexOfWinner = 0
   let highScore = 0
   for(let idx = 0; idx < scoreSheet.length; idx++) {
@@ -47,6 +42,5 @@ function determineWinner(scoreSheet) {
     }
   }
   const idOfWinner = scoreSheet[indexOfWinner].id
-  const winningLanguage = languageNames[idOfWinner]
-  return winningLanguage
+  return idOfWinner
 }

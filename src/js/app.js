@@ -5,7 +5,7 @@ import '../styles/font-face.scss'
 import $ from 'jquery'
 import { $showNewMessage, $printQuizPage, $printScorePage } from './$macros'
 // BUSINESS LOGIC
-import quizPages from './quiz'
+import { quizPages, possibleResults } from './quiz'
 import { turnPage, scoreQuiz, determineWinner } from './core'
 
 $(() => {
@@ -41,8 +41,9 @@ $(() => {
       const scoreSheet = scoreQuiz([...pagesBehind, pageMemo])
       const quizPassedInspection = !!scoreSheet
       if(quizPassedInspection) {
-        const winningLanguage = determineWinner(scoreSheet)
-        $printScorePage(winningLanguage)
+        const idOfWinner = determineWinner(scoreSheet)
+        const quizResult = possibleResults[idOfWinner]
+        $printScorePage(quizResult)
       } else {
         $showNewMessage(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
