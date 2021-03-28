@@ -13,7 +13,7 @@ export default [
         scores: { js: 0, ruby: 2, hoon: 0 },
         myReply:
           `
-          I'm pretty sure Ruby does this. Right? Yeah, Ruby does this. Or something. I'll ask my dad again. Don't take my word for it, please.
+          I'm pretty sure Ruby does this. Right? Yeah, Ruby does this. Or something. I'll ask my dad. He's been learning it. Don't take my word for it, please.
           `,
       },
       {

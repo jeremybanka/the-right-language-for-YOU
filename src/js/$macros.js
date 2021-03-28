@@ -11,7 +11,7 @@ export {
 function $showNewMessage(string) {
   const $message = $(`#message`)
   $message.text(string)
-  $message.removeClass()
+  $message.removeClass().show()
   $message.addClass(`fade-out`)
 }
 

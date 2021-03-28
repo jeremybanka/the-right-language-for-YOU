@@ -155,14 +155,14 @@ body {
         min-height: 30px;
         text-align: center;
         pointer-events: none;
-        transition-property: width height padding;
-        transition-duration: 0.1s;
         &.compressed { 
           width: 0px;
           padding: 0px;
         }
+        &.reset-animation { animation: none }
         &.fade-out {
-          animation: fade 3s ease-in 5s;
+          animation: fade 1s ease-in 4s;
+          animation-fill-mode: forwards;
         }
       }
       button {
