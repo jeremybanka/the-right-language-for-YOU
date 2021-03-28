@@ -23,13 +23,7 @@ Maybe in the year 2020 choosing a programming language would be a tough decision
 * Clone this repo: `git clone https://github.com/jeremybanka/programming-portfolio`
 * Open `index.html` in your favorite web browser
 
-#### SCSS Tooling
-* Use VS Code.
-* Install VS Code extension "Live Sass Compiler" by Ritwick Dey.
-* Enable 'Watch Sass' in your status bar at the bottom of the app.
-* Now your changes to the scss will compile to css in real-time!
-
-#### Javascript Tooling
+#### ESLint Tooling
 * Use VS Code.
 * Install VS Code extension "ESLint" by Dirk Baeumer.
 * In the project's root folder, run `npm i` to install required dev dependencies.
@@ -42,6 +36,10 @@ Maybe in the year 2020 choosing a programming language would be a tough decision
       "editor.defaultFormatter": "ms-vsliveshare.vsliveshare" \n
     }, // use this rule if you have installed Ritwick Dey's Live Share` 
 * Now, my meticulously selected formatting preferences will be applied to files in this repo any time you hit save!
+
+#### Webpack Tooling
+* In the project's root folder, run `npm i` to install required dev dependencies.
+* Then run `npm start` to apply your changes live as you edit.
 
 ## Known Bugs
 
