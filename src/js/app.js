@@ -3,7 +3,7 @@ import '../styles/core.scss'
 import '../styles/font-face.scss'
 // UI LOGIC
 import $ from 'jquery'
-import { $printScorePage, $printQuizPage, $printMessage } from './$macros'
+import { $showNewMessage, $printQuizPage, $printScorePage } from './$macros'
 // BUSINESS LOGIC
 import quizPages from './quiz'
 import { turnPage, scoreQuiz, determineWinner } from './core'
@@ -34,7 +34,7 @@ $(() => {
       const youDidntAnswer = typeof answerIdx !== `undefined`
       if(youDidntAnswer) {
         const prevAnswer = pageMemo.possibleAnswers[answerIdx]
-        $printMessage(prevAnswer.reply)
+        $showNewMessage(prevAnswer.reply)
       }
       $printQuizPage(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz
@@ -44,7 +44,7 @@ $(() => {
         const winningLanguage = determineWinner(scoreSheet)
         $printScorePage(winningLanguage)
       } else {
-        $printMessage(`Hey, finish the quiz before submitting!`)
+        $showNewMessage(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
     } else { // you're at the start of the quiz and nothing happens

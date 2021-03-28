@@ -3,12 +3,34 @@ import $makeQuizPage from './$makeQuizPage'
 import $makeScorePage from './$makeScorePage'
 
 export {
-  $printMessage,
+  $showNewMessage,
   $printQuizPage,
   $printScorePage,
 }
 
-const $hideButtons = () => $(`button`).addClass(`hidden`)
+function $showNewMessage(string) {
+  const $message = $(`#message`)
+  $message.text(string)
+  $message.removeClass()
+  $message.addClass(`fade-out`)
+}
+
+function $printQuizPage(quizPage) {
+  const $quizPage = $makeQuizPage(quizPage)
+  $replaceMainContentWith($quizPage)
+  $addAnswerListeners(quizPage)
+}
+
+function $printScorePage(winningLanguage) {
+  const $scorePage = $makeScorePage(winningLanguage)
+  $hideButtons()
+  $replaceMainContentWith($scorePage)
+}
+
+function $replaceMainContentWith($jqueryContent) {
+  $(`main`).empty()
+  $(`main`).append($jqueryContent)
+}
 
 function $addAnswerListeners(quizPage) {
   $(`[type='radio']`).on(`click`, e => {
@@ -16,25 +38,4 @@ function $addAnswerListeners(quizPage) {
   })
 }
 
-function $printIntoMain($jqueryContent) {
-  $(`main`).empty()
-  $(`main`).append($jqueryContent)
-}
-
-function $printMessage(string) {
-  const $message = $(`#message`)
-  $message.removeClass().show()
-  $(`#message`).text(string).addClass(`fade-out`)
-}
-
-function $printQuizPage(quizPage) {
-  const $quizPage = $makeQuizPage(quizPage)
-  $printIntoMain($quizPage)
-  $addAnswerListeners(quizPage)
-}
-
-function $printScorePage(winningLanguage) {
-  const $scorePage = $makeScorePage(winningLanguage)
-  $hideButtons()
-  $printIntoMain($scorePage)
-}
+const $hideButtons = () => $(`button`).addClass(`hidden`)

@@ -11712,7 +11712,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "$printMessage": () => (/* binding */ $printMessage),
+/* harmony export */   "$showNewMessage": () => (/* binding */ $showNewMessage),
 /* harmony export */   "$printQuizPage": () => (/* binding */ $printQuizPage),
 /* harmony export */   "$printScorePage": () => (/* binding */ $printScorePage)
 /* harmony export */ });
@@ -11726,7 +11726,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const $hideButtons = () => jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).addClass(`hidden`)
+function $showNewMessage(string) {
+  const $message = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`)
+  $message.text(string)
+  $message.removeClass()
+  $message.addClass(`fade-out`)
+}
+
+function $printQuizPage(quizPage) {
+  const $quizPage = (0,_$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__.default)(quizPage)
+  $replaceMainContentWith($quizPage)
+  $addAnswerListeners(quizPage)
+}
+
+function $printScorePage(winningLanguage) {
+  const $scorePage = (0,_$makeScorePage__WEBPACK_IMPORTED_MODULE_2__.default)(winningLanguage)
+  $hideButtons()
+  $replaceMainContentWith($scorePage)
+}
+
+function $replaceMainContentWith($jqueryContent) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($jqueryContent)
+}
 
 function $addAnswerListeners(quizPage) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[type='radio']`).on(`click`, e => {
@@ -11734,28 +11756,7 @@ function $addAnswerListeners(quizPage) {
   })
 }
 
-function $printIntoMain($jqueryContent) {
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($jqueryContent)
-}
-
-function $printMessage(string) {
-  const $message = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`)
-  $message.removeClass().show()
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`).text(string).addClass(`fade-out`)
-}
-
-function $printQuizPage(quizPage) {
-  const $quizPage = (0,_$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__.default)(quizPage)
-  $printIntoMain($quizPage)
-  $addAnswerListeners(quizPage)
-}
-
-function $printScorePage(winningLanguage) {
-  const $scorePage = (0,_$makeScorePage__WEBPACK_IMPORTED_MODULE_2__.default)(winningLanguage)
-  $hideButtons()
-  $printIntoMain($scorePage)
-}
+const $hideButtons = () => jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).addClass(`hidden`)
 
 
 /***/ }),
@@ -12202,7 +12203,7 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
       const youDidntAnswer = typeof answerIdx !== `undefined`
       if(youDidntAnswer) {
         const prevAnswer = pageMemo.possibleAnswers[answerIdx]
-        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(prevAnswer.reply)
+        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(prevAnswer.reply)
       }
       (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz
@@ -12212,7 +12213,7 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
         const winningLanguage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.determineWinner)(scoreSheet)
         ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printScorePage)(winningLanguage)
       } else {
-        (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(`Hey, finish the quiz before submitting!`)
+        (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
     } else { // you're at the start of the quiz and nothing happens
