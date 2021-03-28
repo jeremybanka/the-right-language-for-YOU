@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <g style="isolation: isolate">
+    <g id="a9fb5b1c-d3cc-4d37-889a-6564b0efa88f" data-name="Layer 1">
+      <g>
+        <path d="M148.49,235,270.86,119.78,216.08,65H83.36L29.14,119.22Z" fill="#c80000"/>
+        <polygon points="29.14 119.58 83.72 65 216.28 65 148.7 119.58 29.14 119.58" fill="#e60000"/>
+        <polygon points="83.72 65 148.7 119.58 216.28 65 83.72 65" fill="#4bc3ff" opacity="0.4" style="mix-blend-mode: screen"/>
+        <polygon points="148.7 233.95 148.7 119.58 270.86 119.58 148.7 233.95" fill="#e60000"/>
+      </g>
+    </g>
+  </g>
+</svg>
