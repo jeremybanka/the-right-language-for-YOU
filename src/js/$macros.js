@@ -34,7 +34,7 @@ function $replaceMainContentWith($jqueryContent) {
 
 function $addAnswerListeners(quizPage) {
   $(`[type='radio']`).on(`click`, e => {
-    quizPage.answerIdx = parseInt(e.target.value, 10)
+    quizPage.idxOfYourAnswer = parseInt(e.target.value, 10)
   })
 }
 

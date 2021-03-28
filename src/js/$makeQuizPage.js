@@ -1,17 +1,19 @@
 import $ from 'jquery'
 
 export default function $makeQuizPage(quizPage) {
-  const { id, question, possibleAnswers, answerIdx } = quizPage
+  const { id, question, possibleAnswers, idxOfYourAnswer } = quizPage
   const $question = $(`<ul id='question'><li>${question}</li></ul>`)
   const $responseForm = $(`<form id='response'/>`)
-  const $answerButtons = $makeAnswerButtons({ possibleAnswers, answerIdx, id })
+  const $answerButtons = $makeAnswerButtons(
+    { possibleAnswers, idxOfYourAnswer, id }
+  )
   $responseForm.append($answerButtons)
   return [$question, $responseForm]
 }
 
-function $makeAnswerButtons({ possibleAnswers, answerIdx, id }) {
+function $makeAnswerButtons({ possibleAnswers, idxOfYourAnswer, id }) {
   return possibleAnswers.map((possibleAnswer, idx) => {
-    const checked = idx === answerIdx
+    const checked = idx === idxOfYourAnswer
     return $makeAnswerButton({ possibleAnswer, idx, id, checked })
   })
 }

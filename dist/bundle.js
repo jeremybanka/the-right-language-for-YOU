@@ -21,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --cerulean: #05f;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n  --link-fg-color: var(--cerulean);\n}\n\nhtml {\n  background: var(--bg-color);\n  color: var(--fg-color);\n}\n\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\n\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: \"Theia\";\n  font-weight: 400;\n}\nbody header {\n  display: flex;\n  flex-direction: column;\n  background: var(--header-color);\n  height: 100px;\n  justify-content: center;\n}\nbody header h1 {\n  margin: 0;\n  font-family: \"Manufab\";\n  font-variation-settings: \"wght\" 600;\n  font-size: 24px;\n  text-align: center;\n}\nbody main {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\nbody main #question, body main article {\n  display: inline-flex;\n  width: 100%;\n  margin-top: -5px;\n  background: var(--bg-color);\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n  font-size: 24px;\n  padding: 20px;\n  padding-left: 60px;\n  list-style-type: \"> \";\n}\nbody main #question {\n  position: sticky;\n  top: 10px;\n  z-index: 1000;\n  max-width: 540px;\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n}\nbody main article {\n  background: var(--fg-color);\n  color: var(--mist);\n}\nbody main form {\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto;\n  width: calc(100% - 20px);\n  max-width: 470px;\n}\nbody main form label {\n  background-color: var(--mist-trans);\n  display: inline-flex;\n  justify-content: space-between;\n  position: relative;\n  width: calc(100% - 40px);\n  padding: 20px;\n  font-size: 21px;\n  cursor: pointer;\n}\nbody main form label ~ label {\n  margin-top: 20px;\n}\nbody main form label:last-of-type {\n  margin-bottom: 150px;\n}\nbody main form label span {\n  width: calc(100% - 40px);\n}\nbody main form label .border, body main form label input[type=radio i] {\n  border: 2px solid var(--medium-shade);\n}\nbody main form label .border {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\nbody main form label input[type=radio i] {\n  height: 15px;\n  width: 15px;\n  cursor: default;\n  appearance: unset;\n  box-sizing: border-box;\n  margin: 5px 3px 0px 5px;\n  box-sizing: border-box;\n  outline: none;\n}\nbody main form label input[type=radio i]:checked {\n  background: var(--fg-color);\n}\nbody main form label input[type=radio i]:checked ~ .border {\n  border-color: var(--fg-color);\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-width: 2px;\n}\nbody main form label input::before {\n  height: 15px;\n  width: 15px;\n  background: var(--fg-color);\n}\nbody footer {\n  position: fixed;\n  width: calc(100vw - 20px);\n  height: 150px;\n  bottom: 0;\n}\nbody footer nav {\n  display: flex;\n  height: 150px;\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  justify-content: space-between;\n  align-items: flex-end;\n  align-content: flex-start;\n}\nbody footer nav #message {\n  color: var(--bg-color);\n  background: var(--fg-color);\n  font-size: 21px;\n  display: flex;\n  padding: 20px 15px;\n  margin-bottom: 40px;\n  align-items: center;\n  min-height: 30px;\n  text-align: center;\n  pointer-events: none;\n  transition-property: width height padding;\n  transition-duration: 0.1s;\n}\nbody footer nav #message.compressed {\n  width: 0px;\n  padding: 0px;\n}\nbody footer nav #message.fade-out {\n  animation: 5s ease-in 1s;\n}\nbody footer nav button {\n  font-family: \"Icon\";\n  cursor: pointer;\n  outline: none;\n  flex-shrink: 0;\n  font-size: 30px;\n  font-variation-settings: \"wght\" 150;\n  height: 70px;\n  width: 70px;\n  margin: 40px 0;\n  padding: 0;\n}\nbody footer nav button#prev {\n  margin-right: 20px;\n  background: var(--bg-color);\n  border: 2px solid var(--fg-color);\n}\nbody footer nav button#prev:before {\n  content: \"h\";\n}\nbody footer nav button#next {\n  margin-left: 20px;\n  background: var(--fg-color);\n  color: var(--bg-color);\n  border: none;\n}\nbody footer nav button#next:before {\n  content: \"l\";\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n}\nbutton:hover, button:focus, label:hover, label:focus {\n  transform: scale(1.005);\n  box-shadow: 0 0px 10px 0.5px var(--light-shade);\n}\nbutton:active, label:active {\n  transition-duration: 10ms;\n  transform: scale(0.93);\n  box-shadow: none;\n}\n\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\n\nbutton:active {\n  transform: scale(0.99);\n}\n\n@keyframes fade {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.hidden {\n  opacity: 0;\n}", "",{"version":3,"sources":["webpack://./src/styles/core.scss"],"names":[],"mappings":"AAAA;EACE,oBAAA;EACA,qBAAA;EACA,eAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;EACA,2BAAA;EACA,oCAAA;EACA,gCAAA;AACF;;AACA;EACE,2BAAA;EACA,sBAAA;AAEF;;AAAA;EACE,aAAA;EACA,sBAAA;AAGF;;AADA;EACE,YAAA;EACA,yBAAA;EACA,aAAA;EACA,oBAAA;EACA,gBAAA;AAIF;AAHE;EACE,aAAA;EACA,sBAAA;EACA,+BAAA;EACA,aAAA;EACA,uBAAA;AAKJ;AAJI;EACE,SAAA;EACA,sBAAA;EACA,mCAAA;EACA,eAAA;EACA,kBAAA;AAMN;AAHE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;AAKJ;AAJI;EACE,oBAAA;EACA,WAAA;EACA,gBAAA;EACA,2BAAA;EACA,kCAAA;EACA,sBAAA;EACA,eAAA;EACA,aAAA;EACA,kBAAA;EACA,qBAAA;AAMN;AAJI;EACE,gBAAA;EACA,SAAA;EACA,aAAA;EACA,gBAAA;EACA,kCAAA;EACA,sBAAA;AAMN;AAJI;EACE,2BAAA;EACA,kBAAA;AAMN;AAJI;EACE,aAAA;EACA,eAAA;EACA,YAAA;EACA,wBAAA;EACA,gBAAA;AAMN;AALM;EACE,mCAAA;EACA,oBAAA;EACA,8BAAA;EACA,kBAAA;EACA,wBAAA;EACA,aAAA;EACA,eAAA;EACA,eAAA;AAOR;AANQ;EACE,gBAAA;AAQV;AANQ;EACE,oBAAA;AAQV;AANQ;EACE,wBAAA;AAQV;AANQ;EACE,qCAAA;AAQV;AANQ;EACE,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,OAAA;AAQV;AANQ;EACE,YAAA;EACA,WAAA;EACA,eAAA;EACA,iBAAA;EACA,sBAAA;EACA,uBAAA;EACA,sBAAA;EACA,aAAA;AAQV;AAPU;EACE,2BAAA;AASZ;AARY;EACE,6BAAA;EACA,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,OAAA;EACA,iBAAA;AAUd;AANQ;EACE,YAAA;EACA,WAAA;EACA,2BAAA;AAQV;AAHE;EACE,eAAA;EACA,yBAAA;EACA,aAAA;EACA,SAAA;AAKJ;AAJI;EACE,aAAA;EACA,aAAA;EACA,WAAA;EACA,gBAAA;EACA,YAAA;EACA,8BAAA;EACA,qBAAA;EACA,yBAAA;AAMN;AALM;EACE,sBAAA;EACA,2BAAA;EACA,eAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,mBAAA;EACA,gBAAA;EACA,kBAAA;EACA,oBAAA;EACA,yCAAA;EACA,yBAAA;AAOR;AANQ;EACE,UAAA;EACA,YAAA;AAQV;AANQ;EACE,wBAAA;AAQV;AALM;EACE,mBAAA;EACA,eAAA;EACA,aAAA;EACA,cAAA;EACA,eAAA;EACA,mCAAA;EACA,YAAA;EACA,WAAA;EACA,cAAA;EACA,UAAA;AAOR;AANQ;EACE,kBAAA;EACA,2BAAA;EACA,iCAAA;AAQV;AAPU;EACE,YAAA;AASZ;AANQ;EACE,iBAAA;EACA,2BAAA;EACA,sBAAA;EACA,YAAA;AAQV;AAPU;EACE,YAAA;AASZ;;AADA;EACE,yCAAA;EACA,0BAAA;EACA,oCAAA;AAIF;AAHE;EACE,uBAAA;EACA,+CAAA;AAKJ;AAHE;EACE,yBAAA;EACA,sBAAA;EACA,gBAAA;AAKJ;;AAFA;EACE,sBAAA;AAKF;;AAHA;EACE,sBAAA;AAMF;;AAJA;EACE;IAAO,UAAA;EAQP;EAPA;IAAO,UAAA;EAUP;AACF;AATA;EAAU,UAAA;AAYV","sourcesContent":[":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --cerulean: #05f;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n  --link-fg-color: var(--cerulean);\n}\nhtml { \n  background: var(--bg-color);\n  color: var(--fg-color); \n}\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: 'Theia';\n  font-weight: 400;\n  header {\n    display: flex;\n    flex-direction: column;\n    background: var(--header-color);\n    height: 100px;\n    justify-content: center;\n    h1 {\n      margin: 0;\n      font-family: 'Manufab';\n      font-variation-settings: 'wght' 600;\n      font-size: 24px;\n      text-align: center;\n    }\n  }\n  main {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    #question, article {\n      display: inline-flex;\n      width: 100%;\n      margin-top: -5px;\n      background: var(--bg-color);\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n      font-size: 24px;\n      padding: 20px;\n      padding-left: 60px;\n      list-style-type: '> ';\n    }\n    #question {\n      position: sticky;\n      top: 10px;\n      z-index: 1000;\n      max-width: 540px;\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n    }\n    article {\n      background: var(--fg-color);\n      color: var(--mist);\n    }\n    form {\n      display: flex;\n      flex-wrap: wrap;\n      margin: auto;\n      width: calc(100% - 20px);\n      max-width: 470px;\n      label {\n        background-color: var(--mist-trans);\n        display: inline-flex;\n        justify-content: space-between;\n        position: relative;\n        width: calc(100% - 40px);\n        padding: 20px;\n        font-size: 21px;\n        cursor: pointer;\n        ~ label {\n          margin-top: 20px;\n        }\n        &:last-of-type {\n          margin-bottom: 150px;\n        }\n        span {\n          width: calc(100% - 40px);\n        }\n        .border, input[type=\"radio\" i] {\n          border: 2px solid var(--medium-shade);\n        }\n        .border {\n          position: absolute;\n          top: 0;\n          right: 0;\n          bottom: 0;\n          left: 0;            \n        }\n        input[type=\"radio\" i] {\n          height: 15px;\n          width: 15px;\n          cursor: default;\n          appearance: unset;\n          box-sizing: border-box;\n          margin: 5px 3px 0px 5px;\n          box-sizing: border-box;\n          outline: none;\n          &:checked {\n            background: var(--fg-color);\n            ~ .border {\n              border-color: var(--fg-color);\n              position: absolute;\n              top: 0;\n              right: 0;\n              bottom: 0;\n              left: 0;            \n              border-width: 2px;\n            }\n          }\n        }\n        input::before {\n          height: 15px;\n          width: 15px;\n          background: var(--fg-color);\n        }\n      }\n    }\n  }\n  footer {\n    position: fixed;\n    width: calc(100vw - 20px);\n    height: 150px;\n    bottom: 0;\n    nav {\n      display: flex;\n      height: 150px;\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n      justify-content: space-between;\n      align-items: flex-end;\n      align-content: flex-start;\n      #message {\n        color: var(--bg-color);\n        background: var(--fg-color);\n        font-size: 21px;\n        display: flex;\n        padding: 20px 15px;\n        margin-bottom: 40px;\n        align-items: center;\n        min-height: 30px;\n        text-align: center;\n        pointer-events: none;\n        transition-property: width height padding;\n        transition-duration: 0.1s;\n        &.compressed { \n          width: 0px;\n          padding: 0px;\n        }\n        &.fade-out {\n          animation: 5s ease-in 1s;\n        }\n      }\n      button {\n        font-family: 'Icon';\n        cursor: pointer;\n        outline: none;\n        flex-shrink: 0;\n        font-size: 30px;\n        font-variation-settings: 'wght' 150;\n        height: 70px;\n        width: 70px;\n        margin: 40px 0;\n        padding: 0;\n        &#prev {\n          margin-right: 20px;\n          background: var(--bg-color);\n          border: 2px solid var(--fg-color);\n          &:before {\n            content: 'h';\n          }\n        }\n        &#next {\n          margin-left: 20px;\n          background: var(--fg-color);\n          color: var(--bg-color);\n          border: none;\n          &:before {\n            content: 'l';\n          }\n        }\n      }\n    }\n  }\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n  &:hover, &:focus {\n    transform: scale(1.005);\n    box-shadow: 0 0px 10px 0.5px var(--light-shade);\n  }\n  &:active {\n    transition-duration: 10ms;\n    transform: scale(0.93);\n    box-shadow: none;\n  }\n}\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\nbutton:active {\n  transform: scale(0.99);\n}\n@keyframes fade {\n  from { opacity: 1 }\n  to   { opacity: 0 }\n}\n.hidden { opacity: 0; }\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --cerulean: #05f;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n  --link-fg-color: var(--cerulean);\n}\n\nhtml {\n  background: var(--bg-color);\n  color: var(--fg-color);\n}\n\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\n\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: \"Theia\";\n  font-weight: 400;\n}\nbody header {\n  display: flex;\n  flex-direction: column;\n  background: var(--header-color);\n  height: 100px;\n  justify-content: center;\n}\nbody header h1 {\n  margin: 0;\n  font-family: \"Manufab\";\n  font-variation-settings: \"wght\" 600;\n  font-size: 24px;\n  text-align: center;\n}\nbody main {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\nbody main #question, body main article {\n  display: inline-flex;\n  width: 100%;\n  margin-top: -5px;\n  background: var(--bg-color);\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n  font-size: 24px;\n  padding: 20px;\n  padding-left: 60px;\n  list-style-type: \"> \";\n}\nbody main #question {\n  position: sticky;\n  top: 10px;\n  z-index: 1000;\n  max-width: 540px;\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n}\nbody main article {\n  background: var(--fg-color);\n  color: var(--mist);\n}\nbody main form {\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto;\n  width: calc(100% - 20px);\n  max-width: 470px;\n}\nbody main form label {\n  background-color: var(--mist-trans);\n  display: inline-flex;\n  justify-content: space-between;\n  position: relative;\n  width: calc(100% - 40px);\n  padding: 20px;\n  font-size: 21px;\n  cursor: pointer;\n}\nbody main form label ~ label {\n  margin-top: 20px;\n}\nbody main form label:last-of-type {\n  margin-bottom: 150px;\n}\nbody main form label span {\n  width: calc(100% - 40px);\n}\nbody main form label .border, body main form label input[type=radio i] {\n  border: 2px solid var(--medium-shade);\n}\nbody main form label .border {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\nbody main form label input[type=radio i] {\n  height: 15px;\n  width: 15px;\n  cursor: default;\n  appearance: unset;\n  box-sizing: border-box;\n  margin: 5px 3px 0px 5px;\n  box-sizing: border-box;\n  outline: none;\n}\nbody main form label input[type=radio i]:checked {\n  background: var(--fg-color);\n}\nbody main form label input[type=radio i]:checked ~ .border {\n  border-color: var(--fg-color);\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-width: 2px;\n}\nbody main form label input::before {\n  height: 15px;\n  width: 15px;\n  background: var(--fg-color);\n}\nbody footer {\n  position: fixed;\n  width: calc(100vw - 20px);\n  height: 150px;\n  bottom: 0;\n}\nbody footer nav {\n  display: flex;\n  height: 150px;\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  justify-content: space-between;\n  align-items: flex-end;\n  align-content: flex-start;\n}\nbody footer nav #message {\n  color: var(--bg-color);\n  background: var(--fg-color);\n  font-size: 21px;\n  display: flex;\n  padding: 20px 15px;\n  margin-bottom: 40px;\n  align-items: center;\n  min-height: 30px;\n  text-align: center;\n  pointer-events: none;\n  transition-property: width height padding;\n  transition-duration: 0.1s;\n}\nbody footer nav #message.compressed {\n  width: 0px;\n  padding: 0px;\n}\nbody footer nav #message.fade-out {\n  animation: fade 3s ease-in 5s;\n}\nbody footer nav button {\n  font-family: \"Icon\";\n  cursor: pointer;\n  outline: none;\n  flex-shrink: 0;\n  font-size: 30px;\n  font-variation-settings: \"wght\" 150;\n  height: 70px;\n  width: 70px;\n  margin: 40px 0;\n  padding: 0;\n}\nbody footer nav button#prev {\n  margin-right: 20px;\n  background: var(--bg-color);\n  border: 2px solid var(--fg-color);\n}\nbody footer nav button#prev:before {\n  content: \"h\";\n}\nbody footer nav button#next {\n  margin-left: 20px;\n  background: var(--fg-color);\n  color: var(--bg-color);\n  border: none;\n}\nbody footer nav button#next:before {\n  content: \"l\";\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n}\nbutton:hover, button:focus, label:hover, label:focus {\n  transform: scale(1.005);\n  box-shadow: 0 0px 10px 0.5px var(--light-shade);\n}\nbutton:active, label:active {\n  transition-duration: 10ms;\n  transform: scale(0.93);\n  box-shadow: none;\n}\n\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\n\nbutton:active {\n  transform: scale(0.99);\n}\n\n@keyframes fade {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n.hidden {\n  opacity: 0;\n}", "",{"version":3,"sources":["webpack://./src/styles/core.scss"],"names":[],"mappings":"AAAA;EACE,oBAAA;EACA,qBAAA;EACA,eAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,uBAAA;EACA,2BAAA;EACA,oCAAA;EACA,gCAAA;AACF;;AACA;EACE,2BAAA;EACA,sBAAA;AAEF;;AAAA;EACE,aAAA;EACA,sBAAA;AAGF;;AADA;EACE,YAAA;EACA,yBAAA;EACA,aAAA;EACA,oBAAA;EACA,gBAAA;AAIF;AAHE;EACE,aAAA;EACA,sBAAA;EACA,+BAAA;EACA,aAAA;EACA,uBAAA;AAKJ;AAJI;EACE,SAAA;EACA,sBAAA;EACA,mCAAA;EACA,eAAA;EACA,kBAAA;AAMN;AAHE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;AAKJ;AAJI;EACE,oBAAA;EACA,WAAA;EACA,gBAAA;EACA,2BAAA;EACA,kCAAA;EACA,sBAAA;EACA,eAAA;EACA,aAAA;EACA,kBAAA;EACA,qBAAA;AAMN;AAJI;EACE,gBAAA;EACA,SAAA;EACA,aAAA;EACA,gBAAA;EACA,kCAAA;EACA,sBAAA;AAMN;AAJI;EACE,2BAAA;EACA,kBAAA;AAMN;AAJI;EACE,aAAA;EACA,eAAA;EACA,YAAA;EACA,wBAAA;EACA,gBAAA;AAMN;AALM;EACE,mCAAA;EACA,oBAAA;EACA,8BAAA;EACA,kBAAA;EACA,wBAAA;EACA,aAAA;EACA,eAAA;EACA,eAAA;AAOR;AANQ;EACE,gBAAA;AAQV;AANQ;EACE,oBAAA;AAQV;AANQ;EACE,wBAAA;AAQV;AANQ;EACE,qCAAA;AAQV;AANQ;EACE,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,OAAA;AAQV;AANQ;EACE,YAAA;EACA,WAAA;EACA,eAAA;EACA,iBAAA;EACA,sBAAA;EACA,uBAAA;EACA,sBAAA;EACA,aAAA;AAQV;AAPU;EACE,2BAAA;AASZ;AARY;EACE,6BAAA;EACA,kBAAA;EACA,MAAA;EACA,QAAA;EACA,SAAA;EACA,OAAA;EACA,iBAAA;AAUd;AANQ;EACE,YAAA;EACA,WAAA;EACA,2BAAA;AAQV;AAHE;EACE,eAAA;EACA,yBAAA;EACA,aAAA;EACA,SAAA;AAKJ;AAJI;EACE,aAAA;EACA,aAAA;EACA,WAAA;EACA,gBAAA;EACA,YAAA;EACA,8BAAA;EACA,qBAAA;EACA,yBAAA;AAMN;AALM;EACE,sBAAA;EACA,2BAAA;EACA,eAAA;EACA,aAAA;EACA,kBAAA;EACA,mBAAA;EACA,mBAAA;EACA,gBAAA;EACA,kBAAA;EACA,oBAAA;EACA,yCAAA;EACA,yBAAA;AAOR;AANQ;EACE,UAAA;EACA,YAAA;AAQV;AANQ;EACE,6BAAA;AAQV;AALM;EACE,mBAAA;EACA,eAAA;EACA,aAAA;EACA,cAAA;EACA,eAAA;EACA,mCAAA;EACA,YAAA;EACA,WAAA;EACA,cAAA;EACA,UAAA;AAOR;AANQ;EACE,kBAAA;EACA,2BAAA;EACA,iCAAA;AAQV;AAPU;EACE,YAAA;AASZ;AANQ;EACE,iBAAA;EACA,2BAAA;EACA,sBAAA;EACA,YAAA;AAQV;AAPU;EACE,YAAA;AASZ;;AADA;EACE,yCAAA;EACA,0BAAA;EACA,oCAAA;AAIF;AAHE;EACE,uBAAA;EACA,+CAAA;AAKJ;AAHE;EACE,yBAAA;EACA,sBAAA;EACA,gBAAA;AAKJ;;AAFA;EACE,sBAAA;AAKF;;AAHA;EACE,sBAAA;AAMF;;AAJA;EACE;IAAO,UAAA;EAQP;EAPA;IAAO,UAAA;EAUP;AACF;AATA;EAAU,UAAA;AAYV","sourcesContent":[":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --cerulean: #05f;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n  --link-fg-color: var(--cerulean);\n}\nhtml { \n  background: var(--bg-color);\n  color: var(--fg-color); \n}\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: 'Theia';\n  font-weight: 400;\n  header {\n    display: flex;\n    flex-direction: column;\n    background: var(--header-color);\n    height: 100px;\n    justify-content: center;\n    h1 {\n      margin: 0;\n      font-family: 'Manufab';\n      font-variation-settings: 'wght' 600;\n      font-size: 24px;\n      text-align: center;\n    }\n  }\n  main {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    #question, article {\n      display: inline-flex;\n      width: 100%;\n      margin-top: -5px;\n      background: var(--bg-color);\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n      font-size: 24px;\n      padding: 20px;\n      padding-left: 60px;\n      list-style-type: '> ';\n    }\n    #question {\n      position: sticky;\n      top: 10px;\n      z-index: 1000;\n      max-width: 540px;\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n    }\n    article {\n      background: var(--fg-color);\n      color: var(--mist);\n    }\n    form {\n      display: flex;\n      flex-wrap: wrap;\n      margin: auto;\n      width: calc(100% - 20px);\n      max-width: 470px;\n      label {\n        background-color: var(--mist-trans);\n        display: inline-flex;\n        justify-content: space-between;\n        position: relative;\n        width: calc(100% - 40px);\n        padding: 20px;\n        font-size: 21px;\n        cursor: pointer;\n        ~ label {\n          margin-top: 20px;\n        }\n        &:last-of-type {\n          margin-bottom: 150px;\n        }\n        span {\n          width: calc(100% - 40px);\n        }\n        .border, input[type=\"radio\" i] {\n          border: 2px solid var(--medium-shade);\n        }\n        .border {\n          position: absolute;\n          top: 0;\n          right: 0;\n          bottom: 0;\n          left: 0;            \n        }\n        input[type=\"radio\" i] {\n          height: 15px;\n          width: 15px;\n          cursor: default;\n          appearance: unset;\n          box-sizing: border-box;\n          margin: 5px 3px 0px 5px;\n          box-sizing: border-box;\n          outline: none;\n          &:checked {\n            background: var(--fg-color);\n            ~ .border {\n              border-color: var(--fg-color);\n              position: absolute;\n              top: 0;\n              right: 0;\n              bottom: 0;\n              left: 0;            \n              border-width: 2px;\n            }\n          }\n        }\n        input::before {\n          height: 15px;\n          width: 15px;\n          background: var(--fg-color);\n        }\n      }\n    }\n  }\n  footer {\n    position: fixed;\n    width: calc(100vw - 20px);\n    height: 150px;\n    bottom: 0;\n    nav {\n      display: flex;\n      height: 150px;\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n      justify-content: space-between;\n      align-items: flex-end;\n      align-content: flex-start;\n      #message {\n        color: var(--bg-color);\n        background: var(--fg-color);\n        font-size: 21px;\n        display: flex;\n        padding: 20px 15px;\n        margin-bottom: 40px;\n        align-items: center;\n        min-height: 30px;\n        text-align: center;\n        pointer-events: none;\n        transition-property: width height padding;\n        transition-duration: 0.1s;\n        &.compressed { \n          width: 0px;\n          padding: 0px;\n        }\n        &.fade-out {\n          animation: fade 3s ease-in 5s;\n        }\n      }\n      button {\n        font-family: 'Icon';\n        cursor: pointer;\n        outline: none;\n        flex-shrink: 0;\n        font-size: 30px;\n        font-variation-settings: 'wght' 150;\n        height: 70px;\n        width: 70px;\n        margin: 40px 0;\n        padding: 0;\n        &#prev {\n          margin-right: 20px;\n          background: var(--bg-color);\n          border: 2px solid var(--fg-color);\n          &:before {\n            content: 'h';\n          }\n        }\n        &#next {\n          margin-left: 20px;\n          background: var(--fg-color);\n          color: var(--bg-color);\n          border: none;\n          &:before {\n            content: 'l';\n          }\n        }\n      }\n    }\n  }\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n  &:hover, &:focus {\n    transform: scale(1.005);\n    box-shadow: 0 0px 10px 0.5px var(--light-shade);\n  }\n  &:active {\n    transition-duration: 10ms;\n    transform: scale(0.93);\n    box-shadow: none;\n  }\n}\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\nbutton:active {\n  transform: scale(0.99);\n}\n@keyframes fade {\n  from { opacity: 1 }\n  to   { opacity: 0 }\n}\n.hidden { opacity: 0; }\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11752,7 +11752,7 @@ function $replaceMainContentWith($jqueryContent) {
 
 function $addAnswerListeners(quizPage) {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[type='radio']`).on(`click`, e => {
-    quizPage.answerIdx = parseInt(e.target.value, 10)
+    quizPage.idxOfYourAnswer = parseInt(e.target.value, 10)
   })
 }
 
@@ -11777,17 +11777,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function $makeQuizPage(quizPage) {
-  const { id, question, possibleAnswers, answerIdx } = quizPage
+  const { id, question, possibleAnswers, idxOfYourAnswer } = quizPage
   const $question = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<ul id='question'><li>${question}</li></ul>`)
   const $responseForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<form id='response'/>`)
-  const $answerButtons = $makeAnswerButtons({ possibleAnswers, answerIdx, id })
+  const $answerButtons = $makeAnswerButtons(
+    { possibleAnswers, idxOfYourAnswer, id }
+  )
   $responseForm.append($answerButtons)
   return [$question, $responseForm]
 }
 
-function $makeAnswerButtons({ possibleAnswers, answerIdx, id }) {
+function $makeAnswerButtons({ possibleAnswers, idxOfYourAnswer, id }) {
   return possibleAnswers.map((possibleAnswer, idx) => {
-    const checked = idx === answerIdx
+    const checked = idx === idxOfYourAnswer
     return $makeAnswerButton({ possibleAnswer, idx, id, checked })
   })
 }
@@ -11868,8 +11870,8 @@ function scoreQuiz(pagesBehind) {
   let hoonTotal = 0
   for(let idx = 0; idx < pagesBehind.length; idx++) {
     const page = pagesBehind[idx]
-    if(typeof page.answerIdx === `undefined`) return
-    const chosenAnswer = page.possibleAnswers[page.answerIdx]
+    if(typeof page.idxOfYourAnswer === `undefined`) return
+    const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
     const { js, ruby, hoon } = chosenAnswer.scores
     jsTotal += js
     rubyTotal += ruby
@@ -11930,7 +11932,7 @@ __webpack_require__.r(__webpack_exports__);
           I want to build applications that process complex data behind the scenes, giving the user powerful data and insights.
           `,
         scores: { js: 0, ruby: 2, hoon: 0 },
-        reply:
+        myReply:
           `
           I'm pretty sure Ruby does this. Right? Yeah, Ruby does this. Or something. I'll ask my dad again. Don't take my word for it, please.
           `,
@@ -11941,7 +11943,7 @@ __webpack_require__.r(__webpack_exports__);
           I want to make only the tastiest user interfaces and workflows. The DOM is my DOMain. Get it?
           `,
         scores: { js: 2, ruby: 0, hoon: 0 },
-        reply:
+        myReply:
           `
           I get it! I wrote that joke!! 😎 *winks from behind sunglasses*
           `,
@@ -11952,7 +11954,7 @@ __webpack_require__.r(__webpack_exports__);
           I want to build alien technology.
           `,
         scores: { js: 0, ruby: 1, hoon: 2 },
-        reply:
+        myReply:
           `
           Oh boy, do I have the language for you...
           `,
@@ -11969,7 +11971,7 @@ __webpack_require__.r(__webpack_exports__);
           Words! Using the right part of speech are the best, even if the word is long. I hate having to remember weird shorthands for things, odd terminology, or arcane symbols.
           `,
         scores: { js: 2, ruby: 1, hoon: 0 },
-        reply:
+        myReply:
           `
           Sounds like you name your functions well.
           `,
@@ -11980,7 +11982,7 @@ __webpack_require__.r(__webpack_exports__);
           I like words, but short words are best.
           `,
         scores: { js: 1, ruby: 2, hoon: 0 },
-        reply:
+        myReply:
           `
           Understandable.
           `,
@@ -11991,7 +11993,7 @@ __webpack_require__.r(__webpack_exports__);
           I like weird words and strange symbols. They make me feel like a dungeon wizard, or some kind of high-level monk.
           `,
         scores: { js: 0, ruby: 1, hoon: 2 },
-        reply:
+        myReply:
           `
           Mmhmm, I thought you'd say that. Keep it up, I'll recommend a really weird language.
           `,
@@ -12008,7 +12010,7 @@ __webpack_require__.r(__webpack_exports__);
           Declarative. I like writing functions named after their purpose or goal, and the feeling that comes from that, like I am delegating down to them, and giving them responsibility.
           `,
         scores: { js: 0, ruby: 2, hoon: 2 },
-        reply:
+        myReply:
           `
           Very wise. In time they will respect you for it.
           `,
@@ -12019,7 +12021,7 @@ __webpack_require__.r(__webpack_exports__);
           Imperative. I like to give very specific instructions in precise order. If I'm not micromanaging the computer, I feel like it's gonna get lazy and stop listening to me.
           `,
         scores: { js: 2, ruby: 2, hoon: 0 },
-        reply:
+        myReply:
           `
           Smart. Never trust 'em.
           `,
@@ -12030,7 +12032,7 @@ __webpack_require__.r(__webpack_exports__);
     id: `typing`,
     question:
       `
-      What typing discipline would you like your language to have?
+      What sort of typing discipline would you like your language to have?
       `,
     possibleAnswers: [
       {
@@ -12039,7 +12041,7 @@ __webpack_require__.r(__webpack_exports__);
           Dynamic / Weak. I don't want to have to declare the types of my variables at any time and I want to be free to change their types whenever.
           `,
         scores: { js: 2, ruby: 0, hoon: 0 },
-        reply:
+        myReply:
           `
           Sweet! Sounds like you know a lot about programming!
           `,
@@ -12050,7 +12052,7 @@ __webpack_require__.r(__webpack_exports__);
           Dynamic / Strong. I don't want to declare my types but I want clear errors if I add a number and a string, for example.
           `,
         scores: { js: 0, ruby: 2, hoon: 0 },
-        reply:
+        myReply:
           `
           Sweet! Sounds like you know a lot about programming!
           `,
@@ -12061,7 +12063,7 @@ __webpack_require__.r(__webpack_exports__);
           Static / Strong. I want my types locked down. I want to declare them beforehand and I want to know when I did something wrong with them.
           `,
         scores: { js: 0, ruby: 0, hoon: 2 },
-        reply:
+        myReply:
           `
           Sweet! Sounds like you know a lot about programming!
           `,
@@ -12072,7 +12074,7 @@ __webpack_require__.r(__webpack_exports__);
           Static / Weak. I want to declare types but I don't need the program to make a fuss about what I do with them.
           `,
         scores: { js: 0, ruby: 0, hoon: 0 },
-        reply:
+        myReply:
           `
           Sweet! Sounds like you know a lot about programming!
           `,
@@ -12199,11 +12201,11 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
     currentPage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.turnPage)({ currentPage, toward, leaving })
     const aPageWasFound = !!currentPage
     if(aPageWasFound) { // move along to next question
-      const { answerIdx } = pageMemo
-      const youDidntAnswer = typeof answerIdx !== `undefined`
-      if(youDidntAnswer) {
-        const prevAnswer = pageMemo.possibleAnswers[answerIdx]
-        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(prevAnswer.reply)
+      const { idxOfYourAnswer } = pageMemo
+      const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
+      if(youDidAnswer) {
+        const yourAnswer = pageMemo.possibleAnswers[idxOfYourAnswer]
+        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(yourAnswer.myReply)
       }
       (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz

@@ -16,8 +16,8 @@ function scoreQuiz(pagesBehind) {
   let hoonTotal = 0
   for(let idx = 0; idx < pagesBehind.length; idx++) {
     const page = pagesBehind[idx]
-    if(typeof page.answerIdx === `undefined`) return
-    const chosenAnswer = page.possibleAnswers[page.answerIdx]
+    if(typeof page.idxOfYourAnswer === `undefined`) return
+    const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
     const { js, ruby, hoon } = chosenAnswer.scores
     jsTotal += js
     rubyTotal += ruby

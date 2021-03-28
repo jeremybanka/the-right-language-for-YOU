@@ -30,11 +30,11 @@ $(() => {
     currentPage = turnPage({ currentPage, toward, leaving })
     const aPageWasFound = !!currentPage
     if(aPageWasFound) { // move along to next question
-      const { answerIdx } = pageMemo
-      const youDidntAnswer = typeof answerIdx !== `undefined`
-      if(youDidntAnswer) {
-        const prevAnswer = pageMemo.possibleAnswers[answerIdx]
-        $showNewMessage(prevAnswer.reply)
+      const { idxOfYourAnswer } = pageMemo
+      const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
+      if(youDidAnswer) {
+        const yourAnswer = pageMemo.possibleAnswers[idxOfYourAnswer]
+        $showNewMessage(yourAnswer.myReply)
       }
       $printQuizPage(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz

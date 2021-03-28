@@ -162,7 +162,7 @@ body {
           padding: 0px;
         }
         &.fade-out {
-          animation: 5s ease-in 1s;
+          animation: fade 3s ease-in 5s;
         }
       }
       button {
