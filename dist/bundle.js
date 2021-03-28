@@ -12196,23 +12196,26 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
       }
     })()
     currentPage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.turnPage)({ currentPage, toward, leaving })
-    if(currentPage) {
+    const aPageWasFound = !!currentPage
+    if(aPageWasFound) { // move along to next question
       const { answerIdx } = pageMemo
-      if(typeof answerIdx !== `undefined`) {
+      const youDidntAnswer = typeof answerIdx !== `undefined`
+      if(youDidntAnswer) {
         const prevAnswer = pageMemo.possibleAnswers[answerIdx]
         ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(prevAnswer.reply)
       }
       (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
-    } else if(pagesAhead.length === 0) {
+    } else if(pagesAhead.length === 0) { // try to grade quiz
       const scoreSheet = (0,_core__WEBPACK_IMPORTED_MODULE_5__.scoreQuiz)([...pagesBehind, pageMemo])
-      if(scoreSheet) {
+      const quizPassedInspection = !!scoreSheet
+      if(quizPassedInspection) {
         const winningLanguage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.determineWinner)(scoreSheet)
         ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printScorePage)(winningLanguage)
       } else {
-        (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(`Finish the quiz before submitting!`)
+        (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
-    } else {
+    } else { // you're at the start of the quiz and nothing happens
       currentPage = pageMemo
     }
   })

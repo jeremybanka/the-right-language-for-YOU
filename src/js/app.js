@@ -28,23 +28,26 @@ $(() => {
       }
     })()
     currentPage = turnPage({ currentPage, toward, leaving })
-    if(currentPage) {
+    const aPageWasFound = !!currentPage
+    if(aPageWasFound) { // move along to next question
       const { answerIdx } = pageMemo
-      if(typeof answerIdx !== `undefined`) {
+      const youDidntAnswer = typeof answerIdx !== `undefined`
+      if(youDidntAnswer) {
         const prevAnswer = pageMemo.possibleAnswers[answerIdx]
         $printMessage(prevAnswer.reply)
       }
       $printQuizPage(currentPage)
-    } else if(pagesAhead.length === 0) {
+    } else if(pagesAhead.length === 0) { // try to grade quiz
       const scoreSheet = scoreQuiz([...pagesBehind, pageMemo])
-      if(scoreSheet) {
+      const quizPassedInspection = !!scoreSheet
+      if(quizPassedInspection) {
         const winningLanguage = determineWinner(scoreSheet)
         $printScorePage(winningLanguage)
       } else {
-        $printMessage(`Finish the quiz before submitting!`)
+        $printMessage(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
-    } else {
+    } else { // you're at the start of the quiz and nothing happens
       currentPage = pageMemo
     }
   })
