@@ -11703,6 +11703,86 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/$makeQuizPage.js":
+/*!*********************************!*\
+  !*** ./src/js/$makeQuizPage.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ $makeQuizPage)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function $makeQuizPage(quizPage) {
+  const { id, question, possibleAnswers, answerIdx } = quizPage
+  const $question = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<ul id='question'><li>${question}</li></ul>`)
+  const $responseForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<form id='response'/>`)
+  const $answerButtons = $makeAnswerButtons({ possibleAnswers, answerIdx, id })
+  $responseForm.append($answerButtons)
+  return [$question, $responseForm]
+}
+
+function $makeAnswerButtons({ possibleAnswers, answerIdx, id }) {
+  return possibleAnswers.map((possibleAnswer, idx) => {
+    const checked = idx === answerIdx
+    return $makeAnswerButton({ possibleAnswer, idx, id, checked })
+  })
+}
+
+function $makeAnswerButton({ possibleAnswer, idx, id, checked }) {
+  const { text } = possibleAnswer
+  const $label = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<label/>`)
+  const $border = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class='border'/>`)
+  const $textSpan = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<span/>`).text(text)
+  const $radioButton = $makeRadioButton({ id, idx, checked })
+  const $answerButton = $label.append(
+    $radioButton,
+    $border,
+    $textSpan
+  )
+  return $answerButton
+}
+
+function $makeRadioButton({ id, idx, checked }) {
+  const $radioButton = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<input type='radio'>`)
+  $radioButton.attr(`name`, id).attr(`value`, idx)
+  if(checked) $radioButton.attr(`checked`, true)
+  return $radioButton
+}
+
+
+/***/ }),
+
+/***/ "./src/js/$makeScorePage.js":
+/*!**********************************!*\
+  !*** ./src/js/$makeScorePage.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ $makeScorePage)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function $makeScorePage(winningLanguage) {
+  const scoreSummaryText = `You should learn ${winningLanguage}`
+  const $article = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<article/>`).text(scoreSummaryText)
+  const $scorePage = $article.addClass(`score`)
+  return $scorePage
+}
+
+
+/***/ }),
+
 /***/ "./src/js/core.js":
 /*!************************!*\
   !*** ./src/js/core.js ***!
@@ -11713,7 +11793,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./quiz */ "./src/js/quiz.js");
+/* harmony import */ var _$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./$makeQuizPage */ "./src/js/$makeQuizPage.js");
+/* harmony import */ var _$makeScorePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./$makeScorePage */ "./src/js/$makeScorePage.js");
+/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quiz */ "./src/js/quiz.js");
+
+
 
 
 
@@ -11767,53 +11851,18 @@ function $printMessage(string) {
   $message.removeClass().show()
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`).text(string).addClass(`fade-out`)
 }
-function $makeRadioButton({ id, idx, checked }) {
-  const $radio = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<input type='radio'>`)
-  $radio.attr(`name`, id).attr(`value`, idx)
-  if(checked) $radio.attr(`checked`, true)
-  return $radio
-}
-function $makeAnswerButton({ possibleAnswer, idx, id, checked }) {
-  const { text } = possibleAnswer
-  const $label = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<label/>`)
-  const $border = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class='border'/>`)
-  const $textSpan = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<span/>`).text(text)
-  const $radioButton = $makeRadioButton({ id, idx, checked })
-  return (
-    $label.append(
-      $radioButton,
-      $border,
-      $textSpan
-    )
-  )
-}
-function $makeQuizPage(quizPage) {
-  const { id, question, possibleAnswers, answerIdx } = quizPage
-  const $question = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<ul id='question'><li>${question}</li></ul>`)
-  const $responseForm = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<form id='response'/>`)
-  const $answerButtons = possibleAnswers.map((possibleAnswer, idx) => {
-    const checked = idx === answerIdx
-    return $makeAnswerButton({ possibleAnswer, idx, id, checked })
-  })
-  $responseForm.append($answerButtons)
-  return [$question, $responseForm]
-}
+
 function $printQuizPage(page) {
-  const $quizPage = $makeQuizPage(page)
+  const $quizPage = (0,_$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__.default)(page)
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($quizPage)
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[type='radio']`).on(`click`, e => {
     page.answerIdx = parseInt(e.target.value, 10)
   })
 }
-function $makeScorePage(winningLanguage) {
-  const scoreSummary = `You should learn ${winningLanguage}`
-  const $article = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<article/>`).text(scoreSummary)
-  const $scorePage = $article.addClass(`score`)
-  return $scorePage
-}
+
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(() => {
-  const pagesAhead = _quiz__WEBPACK_IMPORTED_MODULE_1__.default
+  const pagesAhead = _quiz__WEBPACK_IMPORTED_MODULE_3__.default
   const pagesBehind = []
   let currentPage = turnPage({
     toward: pagesAhead,
@@ -11846,7 +11895,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(() => {
         const winningLanguage = determineWinner(scoreSheet)
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).addClass(`hidden`)
         jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($makeScorePage(winningLanguage))
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append((0,_$makeScorePage__WEBPACK_IMPORTED_MODULE_2__.default)(winningLanguage))
       } else {
         $printMessage(`Finish the quiz before submitting!`)
         currentPage = pageMemo

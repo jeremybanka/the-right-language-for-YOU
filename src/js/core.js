@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import $makeQuizPage from './$makeQuizPage'
+import $makeScorePage from './$makeScorePage'
 import quizPages from './quiz'
 
 const LANGUAGE_NAMES = {
@@ -51,37 +53,7 @@ function $printMessage(string) {
   $message.removeClass().show()
   $(`#message`).text(string).addClass(`fade-out`)
 }
-function $makeRadioButton({ id, idx, checked }) {
-  const $radio = $(`<input type='radio'>`)
-  $radio.attr(`name`, id).attr(`value`, idx)
-  if(checked) $radio.attr(`checked`, true)
-  return $radio
-}
-function $makeAnswerButton({ possibleAnswer, idx, id, checked }) {
-  const { text } = possibleAnswer
-  const $label = $(`<label/>`)
-  const $border = $(`<div class='border'/>`)
-  const $textSpan = $(`<span/>`).text(text)
-  const $radioButton = $makeRadioButton({ id, idx, checked })
-  return (
-    $label.append(
-      $radioButton,
-      $border,
-      $textSpan
-    )
-  )
-}
-function $makeQuizPage(quizPage) {
-  const { id, question, possibleAnswers, answerIdx } = quizPage
-  const $question = $(`<ul id='question'><li>${question}</li></ul>`)
-  const $responseForm = $(`<form id='response'/>`)
-  const $answerButtons = possibleAnswers.map((possibleAnswer, idx) => {
-    const checked = idx === answerIdx
-    return $makeAnswerButton({ possibleAnswer, idx, id, checked })
-  })
-  $responseForm.append($answerButtons)
-  return [$question, $responseForm]
-}
+
 function $printQuizPage(page) {
   const $quizPage = $makeQuizPage(page)
   $(`main`).empty()
@@ -90,12 +62,7 @@ function $printQuizPage(page) {
     page.answerIdx = parseInt(e.target.value, 10)
   })
 }
-function $makeScorePage(winningLanguage) {
-  const scoreSummary = `You should learn ${winningLanguage}`
-  const $article = $(`<article/>`).text(scoreSummary)
-  const $scorePage = $article.addClass(`score`)
-  return $scorePage
-}
+
 $(() => {
   const pagesAhead = quizPages
   const pagesBehind = []
