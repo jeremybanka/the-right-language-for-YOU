@@ -22,6 +22,8 @@ body {
   margin: auto;
   width: calc(100vw - 20px);
   height: 100vh;
+  font-family: 'Theia';
+  font-weight: 400;
   header {
     display: flex;
     flex-direction: column;
@@ -30,6 +32,10 @@ body {
     justify-content: center;
     h1 {
       margin: 0;
+      font-family: 'Manufab';
+      font-variation-settings: 'wght' 600;
+      font-size: 24px;
+      text-align: center;
     }
   }
   main {
