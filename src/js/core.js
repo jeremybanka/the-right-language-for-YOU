@@ -21,12 +21,12 @@ function determineWinner(scoreSheet) {
   const winningLanguage = LANGUAGE_NAMES[idOfWinner]
   return winningLanguage
 }
-function scoreQuiz(pagesAnswered) {
+function scoreQuiz(pagesBehind) {
   let jsTotal = 0
   let rubyTotal = 0
   let hoonTotal = 0
-  for(let idx = 0; idx < pagesAnswered.length; idx++) {
-    const page = pagesAnswered[idx]
+  for(let idx = 0; idx < pagesBehind.length; idx++) {
+    const page = pagesBehind[idx]
     if(typeof page.answerIdx === `undefined`) return
     const chosenAnswer = page.possibleAnswers[page.answerIdx]
     const { js, ruby, hoon } = chosenAnswer.scores
@@ -41,99 +41,102 @@ function scoreQuiz(pagesAnswered) {
   ]
   return scoreSheet
 }
-function getNextPage(pagesUnanswered, pagesAnswered, currentPage) {
-  if(pagesUnanswered.length === 0) return
-  if(currentPage) pagesAnswered.push(currentPage)
-  return pagesUnanswered.pop()
+function turnPage({ currentPage, toward, leaving }) {
+  if(toward.length === 0) return
+  if(currentPage) leaving.unshift(currentPage)
+  return toward.shift()
 }
-function getPrevPage(pagesUnanswered, pagesAnswered, currentPage) {
-  if(pagesAnswered.length === 0) return
-  if(currentPage) pagesUnanswered.push(currentPage)
-  return pagesAnswered.pop()
-}
-function sendMessage(string) {
+function $printMessage(string) {
   const $message = $(`#message`)
   $message.removeClass().show()
   $(`#message`).text(string).addClass(`fade-out`)
 }
-function listenToRadio(currentPage) {
-  $(`[type='radio']`).on(`click`, e => {
-    currentPage.answerIdx = parseInt(e.target.value, 10)
-  })
-}
-
-function $RadioButton({ id, idx, checked }) {
+function $makeRadioButton({ id, idx, checked }) {
   const $radio = $(`<input type='radio'>`)
   $radio.attr(`name`, id).attr(`value`, idx)
   if(checked) $radio.attr(`checked`, true)
   return $radio
 }
-function $PossibleAnswer({ possibleAnswer, idx, id, checked }) {
+function $makeAnswerButton({ possibleAnswer, idx, id, checked }) {
   const { text } = possibleAnswer
   const $label = $(`<label/>`)
   const $border = $(`<div class='border'/>`)
   const $textSpan = $(`<span/>`).text(text)
+  const $radioButton = $makeRadioButton({ id, idx, checked })
   return (
     $label.append(
-      $RadioButton({ id, idx, checked }),
+      $radioButton,
       $border,
       $textSpan
     )
   )
 }
-function $QuizPage(quizPage) {
+function $makeQuizPage(quizPage) {
   const { id, question, possibleAnswers, answerIdx } = quizPage
   const $question = $(`<ul id='question'><li>${question}</li></ul>`)
   const $responseForm = $(`<form id='response'/>`)
-  for(let idx = 0; idx < possibleAnswers.length; idx++) {
-    const possibleAnswer = possibleAnswers[idx]
+  const $answerButtons = possibleAnswers.map((possibleAnswer, idx) => {
     const checked = idx === answerIdx
-    $responseForm.append($PossibleAnswer({ possibleAnswer, idx, id, checked }))
-  }
+    return $makeAnswerButton({ possibleAnswer, idx, id, checked })
+  })
+  $responseForm.append($answerButtons)
   return [$question, $responseForm]
 }
-function $ScorePage(winningLanguage) {
-  const scoreSummary = `${winningLanguage} was your most compatible language!`
+function $printQuizPage(page) {
+  const $quizPage = $makeQuizPage(page)
+  $(`main`).empty()
+  $(`main`).append($quizPage)
+  $(`[type='radio']`).on(`click`, e => {
+    page.answerIdx = parseInt(e.target.value, 10)
+  })
+}
+function $makeScorePage(winningLanguage) {
+  const scoreSummary = `You should learn ${winningLanguage}`
   const $article = $(`<article/>`).text(scoreSummary)
   const $scorePage = $article.addClass(`score`)
   return $scorePage
 }
 $(() => {
-  const pagesUnanswered = quizPages
-  const pagesAnswered = []
-  let currentPage
-  currentPage = getNextPage(pagesUnanswered, pagesAnswered, currentPage)
-  $(`main`).empty()
-  $(`main`).append($QuizPage(currentPage))
-  listenToRadio(currentPage)
+  const pagesAhead = quizPages
+  const pagesBehind = []
+  let currentPage = turnPage({
+    toward: pagesAhead,
+    leaving: pagesBehind,
+  })
+  $printQuizPage(currentPage)
   $(`button`).on(`click`, e => {
     e.preventDefault()
-    const prevPageMemo = currentPage
-    currentPage = e.target.id === `next`
-      ? getNextPage(pagesUnanswered, pagesAnswered, currentPage)
-      : getPrevPage(pagesUnanswered, pagesAnswered, currentPage)
+    const pageMemo = currentPage
+    const buttonId = e.target.id
+    let toward; let leaving
+    switch(buttonId) {
+      case `next`: [toward, leaving] = [pagesAhead, pagesBehind]
+        break
+      case `prev`: [toward, leaving] = [pagesBehind, pagesAhead]
+        break
+      default: throw new Error(`unexpected button id`)
+    }
+    currentPage = turnPage({ currentPage, toward, leaving })
     if(currentPage) {
-      const { answerIdx } = prevPageMemo
+      const { answerIdx } = pageMemo
       if(typeof answerIdx !== `undefined`) {
-        const prevAnswer = prevPageMemo.possibleAnswers[answerIdx]
-        sendMessage(prevAnswer.reply)
+        const prevAnswer = pageMemo.possibleAnswers[answerIdx]
+        $printMessage(prevAnswer.reply)
       }
-      $(`main`).empty()
-      $(`main`).append($QuizPage(currentPage))
-      listenToRadio(currentPage)
-    } else if(pagesUnanswered.length === 0) {
-      const scoreSheet = scoreQuiz([...pagesAnswered, prevPageMemo])
+      $printQuizPage(currentPage)
+    } else if(pagesAhead.length === 0) {
+      const scoreSheet = scoreQuiz([...pagesBehind, pageMemo])
       if(scoreSheet) {
         const winningLanguage = determineWinner(scoreSheet)
-        $(`button`).hide()
+        $(`button`).addClass(`hidden`)
         $(`main`).empty()
-        $(`main`).append($ScorePage(winningLanguage))
+        $(`main`).append($makeScorePage(winningLanguage))
       } else {
-        sendMessage(`Finish the quiz before submitting!`)
-        currentPage = prevPageMemo
+        $printMessage(`Finish the quiz before submitting!`)
+        currentPage = pageMemo
       }
     } else {
-      currentPage = prevPageMemo
+      currentPage = pageMemo
     }
   })
 })
