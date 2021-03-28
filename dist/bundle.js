@@ -11703,6 +11703,63 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/$macros.js":
+/*!***************************!*\
+  !*** ./src/js/$macros.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "$printMessage": () => (/* binding */ $printMessage),
+/* harmony export */   "$printQuizPage": () => (/* binding */ $printQuizPage),
+/* harmony export */   "$printScorePage": () => (/* binding */ $printScorePage)
+/* harmony export */ });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./$makeQuizPage */ "./src/js/$makeQuizPage.js");
+/* harmony import */ var _$makeScorePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./$makeScorePage */ "./src/js/$makeScorePage.js");
+
+
+
+
+
+
+const $hideButtons = () => jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).addClass(`hidden`)
+
+function $addAnswerListeners(quizPage) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[type='radio']`).on(`click`, e => {
+    quizPage.answerIdx = parseInt(e.target.value, 10)
+  })
+}
+
+function $printIntoMain($jqueryContent) {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($jqueryContent)
+}
+
+function $printMessage(string) {
+  const $message = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`)
+  $message.removeClass().show()
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`).text(string).addClass(`fade-out`)
+}
+
+function $printQuizPage(quizPage) {
+  const $quizPage = (0,_$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__.default)(quizPage)
+  $printIntoMain($quizPage)
+  $addAnswerListeners(quizPage)
+}
+
+function $printScorePage(winningLanguage) {
+  const $scorePage = (0,_$makeScorePage__WEBPACK_IMPORTED_MODULE_2__.default)(winningLanguage)
+  $hideButtons()
+  $printIntoMain($scorePage)
+}
+
+
+/***/ }),
+
 /***/ "./src/js/$makeQuizPage.js":
 /*!*********************************!*\
   !*** ./src/js/$makeQuizPage.js ***!
@@ -11791,36 +11848,19 @@ function $makeScorePage(winningLanguage) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./$makeQuizPage */ "./src/js/$makeQuizPage.js");
-/* harmony import */ var _$makeScorePage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./$makeScorePage */ "./src/js/$makeScorePage.js");
-/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./quiz */ "./src/js/quiz.js");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "turnPage": () => (/* binding */ turnPage),
+/* harmony export */   "scoreQuiz": () => (/* binding */ scoreQuiz),
+/* harmony export */   "determineWinner": () => (/* binding */ determineWinner)
+/* harmony export */ });
 
 
-
-
-
-const LANGUAGE_NAMES = {
-  js: `Javascript`,
-  ruby: `Ruby`,
-  hoon: `Hoon`,
+function turnPage({ currentPage, toward, leaving }) {
+  if(toward.length === 0) return
+  if(currentPage) leaving.unshift(currentPage)
+  return toward.shift()
 }
 
-function determineWinner(scoreSheet) {
-  let indexOfWinner = 0
-  let highScore = 0
-  for(let idx = 0; idx < scoreSheet.length; idx++) {
-    const languageResult = scoreSheet[idx]
-    if(languageResult.score > highScore) {
-      indexOfWinner = idx
-      highScore = languageResult.score
-    }
-  }
-  const idOfWinner = scoreSheet[indexOfWinner].id
-  const winningLanguage = LANGUAGE_NAMES[idOfWinner]
-  return winningLanguage
-}
 function scoreQuiz(pagesBehind) {
   let jsTotal = 0
   let rubyTotal = 0
@@ -11841,70 +11881,26 @@ function scoreQuiz(pagesBehind) {
   ]
   return scoreSheet
 }
-function turnPage({ currentPage, toward, leaving }) {
-  if(toward.length === 0) return
-  if(currentPage) leaving.unshift(currentPage)
-  return toward.shift()
-}
-function $printMessage(string) {
-  const $message = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`)
-  $message.removeClass().show()
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#message`).text(string).addClass(`fade-out`)
-}
 
-function $printQuizPage(page) {
-  const $quizPage = (0,_$makeQuizPage__WEBPACK_IMPORTED_MODULE_1__.default)(page)
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append($quizPage)
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[type='radio']`).on(`click`, e => {
-    page.answerIdx = parseInt(e.target.value, 10)
-  })
+function determineWinner(scoreSheet) {
+  const languageNames = {
+    js: `Javascript`,
+    ruby: `Ruby`,
+    hoon: `Hoon`,
+  }
+  let indexOfWinner = 0
+  let highScore = 0
+  for(let idx = 0; idx < scoreSheet.length; idx++) {
+    const languageResult = scoreSheet[idx]
+    if(languageResult.score > highScore) {
+      indexOfWinner = idx
+      highScore = languageResult.score
+    }
+  }
+  const idOfWinner = scoreSheet[indexOfWinner].id
+  const winningLanguage = languageNames[idOfWinner]
+  return winningLanguage
 }
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(() => {
-  const pagesAhead = _quiz__WEBPACK_IMPORTED_MODULE_3__.default
-  const pagesBehind = []
-  let currentPage = turnPage({
-    toward: pagesAhead,
-    leaving: pagesBehind,
-  })
-  $printQuizPage(currentPage)
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).on(`click`, e => {
-    e.preventDefault()
-    const pageMemo = currentPage
-    const buttonId = e.target.id
-    let toward; let leaving
-    switch(buttonId) {
-      case `next`: [toward, leaving] = [pagesAhead, pagesBehind]
-        break
-      case `prev`: [toward, leaving] = [pagesBehind, pagesAhead]
-        break
-      default: throw new Error(`unexpected button id`)
-    }
-    currentPage = turnPage({ currentPage, toward, leaving })
-    if(currentPage) {
-      const { answerIdx } = pageMemo
-      if(typeof answerIdx !== `undefined`) {
-        const prevAnswer = pageMemo.possibleAnswers[answerIdx]
-        $printMessage(prevAnswer.reply)
-      }
-      $printQuizPage(currentPage)
-    } else if(pagesAhead.length === 0) {
-      const scoreSheet = scoreQuiz([...pagesBehind, pageMemo])
-      if(scoreSheet) {
-        const winningLanguage = determineWinner(scoreSheet)
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(`button`).addClass(`hidden`)
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).empty()
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(`main`).append((0,_$makeScorePage__WEBPACK_IMPORTED_MODULE_2__.default)(winningLanguage))
-      } else {
-        $printMessage(`Finish the quiz before submitting!`)
-        currentPage = pageMemo
-      }
-    } else {
-      currentPage = pageMemo
-    }
-  })
-})
 
 
 /***/ }),
@@ -12167,16 +12163,60 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_font_face_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/font-face.scss */ "./src/styles/font-face.scss");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./core */ "./src/js/core.js");
-// SCSS
+/* harmony import */ var _$macros__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./$macros */ "./src/js/$macros.js");
+/* harmony import */ var _quiz__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./quiz */ "./src/js/quiz.js");
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core */ "./src/js/core.js");
+// STYLE
 
 
-// JS
+// UI LOGIC
+
+
+// BUSINESS LOGIC
 
 
 
-window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_2___default())
-window.$ = (jquery__WEBPACK_IMPORTED_MODULE_2___default())
+jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
+  const [pagesBehind, pagesAhead] = [[], [..._quiz__WEBPACK_IMPORTED_MODULE_4__.default]]
+  let currentPage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.turnPage)({
+    toward: pagesAhead,
+    leaving: pagesBehind,
+  })
+  ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
+
+  jquery__WEBPACK_IMPORTED_MODULE_2___default()(`button`).on(`click`, e => {
+    e.preventDefault()
+    const pageMemo = currentPage
+    const buttonId = e.target.id
+    const [toward, leaving] = (() => {
+      switch(buttonId) {
+        case `next`: return [pagesAhead, pagesBehind]
+        case `prev`: return [pagesBehind, pagesAhead]
+        default: throw new Error(`unexpected button id`)
+      }
+    })()
+    currentPage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.turnPage)({ currentPage, toward, leaving })
+    if(currentPage) {
+      const { answerIdx } = pageMemo
+      if(typeof answerIdx !== `undefined`) {
+        const prevAnswer = pageMemo.possibleAnswers[answerIdx]
+        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(prevAnswer.reply)
+      }
+      (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
+    } else if(pagesAhead.length === 0) {
+      const scoreSheet = (0,_core__WEBPACK_IMPORTED_MODULE_5__.scoreQuiz)([...pagesBehind, pageMemo])
+      if(scoreSheet) {
+        const winningLanguage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.determineWinner)(scoreSheet)
+        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printScorePage)(winningLanguage)
+      } else {
+        (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printMessage)(`Finish the quiz before submitting!`)
+        currentPage = pageMemo
+      }
+    } else {
+      currentPage = pageMemo
+    }
+  })
+})
 
 })();
 
