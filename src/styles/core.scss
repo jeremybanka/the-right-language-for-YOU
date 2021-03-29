@@ -18,13 +18,16 @@ body, header {
   flex-direction: column;
 }
 body {
+  user-select: none;
   margin: auto;
   width: calc(100vw - 20px);
   height: 100vh;
   font-family: 'Theia';
   font-weight: 400;
+  line-height: 1.8em;
   header {
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     background: var(--header-color);
     height: 100px;
@@ -112,7 +115,7 @@ body {
           cursor: default;
           appearance: unset;
           box-sizing: border-box;
-          margin: 5px 3px 0px 5px;
+          margin: 6px 6px 6px 6px;
           box-sizing: border-box;
           outline: none;
           &:checked {
