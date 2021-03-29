@@ -46,7 +46,7 @@ const quizPages = [
   },
   {
     id: `verbosity`,
-    question: `Do like words or symbols as names for things?`,
+    question: `Do you like words or symbols as names for things?`,
     possibleAnswers: [
       {
         text:
