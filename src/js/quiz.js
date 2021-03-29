@@ -234,6 +234,7 @@ const quizPages = [
           `,
       },
     ],
+    idxOfYourAnswer: 0,
   },
   {
     id: `facebook`,
@@ -329,11 +330,12 @@ const quizPages = [
       {
         text:
           `
-          ...
+          ...what statement?
           `,
-        reply: `*ahem*`,
+        myReply: `*ahem*`,
       },
     ],
+    idxOfYourAnswer: 0,
   },
   {
     id: `urbit2`,
@@ -362,8 +364,9 @@ const quizPages = [
       Thank you... And what about the following statement:
       `,
     possibleAnswers: [
-      { text: `...` },
+      { text: `...another one?` },
     ],
+    idxOfYourAnswer: 0,
   },
   {
     id: `urbit4`,
@@ -393,8 +396,12 @@ const quizPages = [
       Your response has been... Yes, there's another one:
       `,
     possibleAnswers: [
-      { text: `...` },
+      {
+        text: `what is it.`,
+        myReply: `*ahem*`,
+      },
     ],
+    idxOfYourAnswer: 0,
   },
   {
     id: `urbit6`,
@@ -419,8 +426,12 @@ const quizPages = [
       Just one more:
       `,
     possibleAnswers: [
-      { text: `...` },
+      {
+        text: `...`,
+        reply: `*ahem*`,
+      },
     ],
+    idxOfYourAnswer: 0,
   },
   {
     id: `urbit8`,
