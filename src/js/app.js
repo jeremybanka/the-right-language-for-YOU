@@ -35,7 +35,6 @@ $(() => {
       if(youDidAnswer) {
         const yourAnswer = pageMemo.possibleAnswers[idxOfYourAnswer]
         const iHaveSomethingToSay = !!yourAnswer.myReply
-        console.log(yourAnswer.myReply)
         if(iHaveSomethingToSay) $showNewMessage(yourAnswer.myReply)
       }
       $printQuizPage(currentPage)
