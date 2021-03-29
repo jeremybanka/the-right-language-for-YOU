@@ -7,9 +7,10 @@
 * 📄 HTML5
 * 💅 SASS ➡️ CSS3 (thanks to VS Code ext. Live Sass Compiler by Ritwick Dey)
 * ▶️ ES6 🛠 Airbnb ESLint (thanks to VS Code ext. ESLint by Dirk Baeumer)
-* ⏩ jQuery 3.6.0 via jsdelivr
-* 👨🏻‍🎨 Adobe Illustrator (comps/planning/writing)
-* 🅰️ All fonts and icons designed by me in Georg Seifert's _superb_  [Glyphs.app](https://glyphsapp.com) 💚💚💚
+* ⏩ jQuery 3.6.0
+* 📦 Webpack 5 for bundling my js modules.
+* 👨🏻‍🎨 Adobe Illustrator (comps/planning)
+* 🅰️ All fonts and icons designed by me in Georg Seifert's _superb_  💚[Glyphs.app](https://glyphsapp.com)💚
 
 ## Description
 
