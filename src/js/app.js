@@ -34,7 +34,9 @@ $(() => {
       const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
       if(youDidAnswer) {
         const yourAnswer = pageMemo.possibleAnswers[idxOfYourAnswer]
-        $showNewMessage(yourAnswer.myReply)
+        const iHaveSomethingToSay = !!yourAnswer.myReply
+        console.log(yourAnswer.myReply)
+        if(iHaveSomethingToSay) $showNewMessage(yourAnswer.myReply)
       }
       $printQuizPage(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz

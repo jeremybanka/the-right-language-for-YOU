@@ -10,15 +10,19 @@ function turnPage({ currentPage, toward, leaving }) {
   return toward.shift()
 }
 
-function scoreQuiz(pagesBehind) {
+function scoreQuiz(allPages) {
   let jsTotal = 0
   let rubyTotal = 0
   let hoonTotal = 0
-  for(let idx = 0; idx < pagesBehind.length; idx++) {
-    const page = pagesBehind[idx]
+  for(let idx = 0; idx < allPages.length; idx++) {
+    const page = allPages[idx]
     if(typeof page.idxOfYourAnswer === `undefined`) return
     const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
-    const { js, ruby, hoon } = chosenAnswer.scores
+    const { js, ruby, hoon } = chosenAnswer.scores || {
+      js: 0,
+      ruby: 0,
+      hoon: 0,
+    }
     jsTotal += js
     rubyTotal += ruby
     hoonTotal += hoon

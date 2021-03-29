@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(_images_bg_texture_svg__WEBPACK_IMPORTED_MODULE_3__.default);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --ice: #c8ffff;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n}\n\nhtml {\n  background: var(--bg-color);\n  color: var(--fg-color);\n}\n\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\n\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: \"Theia\";\n  font-weight: 400;\n}\nbody header {\n  display: flex;\n  flex-direction: column;\n  background: var(--header-color);\n  height: 100px;\n  justify-content: center;\n}\nbody header h1 {\n  margin: 0;\n  font-family: \"Manufab\";\n  font-variation-settings: \"wght\" 600;\n  font-size: 24px;\n  text-align: center;\n}\nbody main {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\nbody main #question, body main article {\n  display: inline-flex;\n  flex-direction: column;\n  width: 100%;\n  max-width: 540px;\n  margin-top: -5px;\n  background: var(--bg-color);\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n  font-size: 24px;\n  list-style-type: \"> \";\n}\nbody main #question {\n  position: sticky;\n  top: 10px;\n  padding: 20px;\n  padding-left: 60px;\n  z-index: 1000;\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n}\nbody main article {\n  background: var(--fg-color);\n  color: var(--bg-color);\n  padding: 40px;\n  margin-bottom: 150px;\n}\nbody main article h2 {\n  font-weight: 200;\n}\nbody main article a {\n  color: var(--ice);\n}\nbody main form {\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto;\n  width: calc(100% - 20px);\n  max-width: 470px;\n}\nbody main form label {\n  background-color: var(--mist-trans);\n  display: inline-flex;\n  justify-content: space-between;\n  position: relative;\n  width: calc(100% - 40px);\n  padding: 20px;\n  font-size: 21px;\n  cursor: pointer;\n}\nbody main form label ~ label {\n  margin-top: 20px;\n}\nbody main form label:last-of-type {\n  margin-bottom: 150px;\n}\nbody main form label span {\n  width: calc(100% - 40px);\n}\nbody main form label .border, body main form label input[type=radio i] {\n  border: 2px solid var(--medium-shade);\n}\nbody main form label .border {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\nbody main form label input[type=radio i] {\n  height: 15px;\n  width: 15px;\n  cursor: default;\n  appearance: unset;\n  box-sizing: border-box;\n  margin: 5px 3px 0px 5px;\n  box-sizing: border-box;\n  outline: none;\n}\nbody main form label input[type=radio i]:checked {\n  background: var(--fg-color);\n}\nbody main form label input[type=radio i]:checked ~ .border {\n  border-color: var(--fg-color);\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-width: 2px;\n}\nbody main form label input::before {\n  height: 15px;\n  width: 15px;\n  background: var(--fg-color);\n}\nbody footer {\n  position: fixed;\n  width: calc(100vw - 20px);\n  height: 150px;\n  bottom: 0;\n}\nbody footer nav {\n  display: flex;\n  height: 150px;\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  justify-content: space-between;\n  align-items: flex-end;\n  align-content: flex-start;\n}\nbody footer nav #message {\n  color: var(--bg-color);\n  background: var(--fg-color);\n  font-size: 21px;\n  display: flex;\n  padding: 20px 15px;\n  margin-bottom: 40px;\n  align-items: center;\n  min-height: 30px;\n  text-align: center;\n  pointer-events: none;\n}\nbody footer nav #message.compressed {\n  width: 0px;\n  padding: 0px;\n}\nbody footer nav #message.reset-animation {\n  animation: none;\n}\nbody footer nav #message.fade-out {\n  animation: fade 1s ease-in 4s;\n  animation-fill-mode: forwards;\n}\nbody footer nav button {\n  font-family: \"Icon\";\n  cursor: pointer;\n  outline: none;\n  flex-shrink: 0;\n  font-size: 30px;\n  font-variation-settings: \"wght\" 150;\n  height: 70px;\n  width: 70px;\n  margin: 40px 0;\n  padding: 0;\n}\nbody footer nav button#prev {\n  margin-right: 20px;\n  background: var(--bg-color);\n  border: 2px solid var(--fg-color);\n}\nbody footer nav button#prev:before {\n  content: \"h\";\n}\nbody footer nav button#next {\n  margin-left: 20px;\n  background: var(--fg-color);\n  color: var(--bg-color);\n  border: none;\n}\nbody footer nav button#next:before {\n  content: \"l\";\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n}\nbutton:hover, button:focus, label:hover, label:focus {\n  transform: scale(1.005);\n  box-shadow: 0 0px 10px 0.5px var(--light-shade);\n}\nbutton:active, label:active {\n  transition-duration: 10ms;\n  transform: scale(0.93);\n  box-shadow: none;\n}\n\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\n\nbutton:active {\n  transform: scale(0.99);\n}\n\n@keyframes fade {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n#bg {\n  z-index: -100;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  display: inline-flex;\n  position: fixed;\n  height: 120vh;\n  top: -10vh;\n  width: 120vw;\n  left: -10vw;\n}", "",{"version":3,"sources":["webpack://./src/styles/core.scss"],"names":[],"mappings":"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","sourcesContent":[":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --ice: #c8ffff;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n}\nhtml { \n  background: var(--bg-color);\n  color: var(--fg-color); \n}\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\nbody {\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: 'Theia';\n  font-weight: 400;\n  header {\n    display: flex;\n    flex-direction: column;\n    background: var(--header-color);\n    height: 100px;\n    justify-content: center;\n    h1 {\n      margin: 0;\n      font-family: 'Manufab';\n      font-variation-settings: 'wght' 600;\n      font-size: 24px;\n      text-align: center;\n    }\n  }\n  main {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    #question, article {\n      display: inline-flex;\n      flex-direction: column;\n      width: 100%;\n      max-width: 540px;\n      margin-top: -5px;\n      background: var(--bg-color);\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n      font-size: 24px;\n      list-style-type: '> ';\n    }\n    #question {\n      position: sticky;\n      top: 10px;\n      padding: 20px;\n      padding-left: 60px;\n      z-index: 1000;\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n    }\n    article {\n      background: var(--fg-color);\n      color: var(--bg-color);\n      padding: 40px;\n      margin-bottom: 150px;\n      h2 {\n        font-weight: 200;\n      }\n      a { color: var(--ice) }\n    }\n    form {\n      display: flex;\n      flex-wrap: wrap;\n      margin: auto;\n      width: calc(100% - 20px);\n      max-width: 470px;\n      label {\n        background-color: var(--mist-trans);\n        display: inline-flex;\n        justify-content: space-between;\n        position: relative;\n        width: calc(100% - 40px);\n        padding: 20px;\n        font-size: 21px;\n        cursor: pointer;\n        ~ label {\n          margin-top: 20px;\n        }\n        &:last-of-type {\n          margin-bottom: 150px;\n        }\n        span {\n          width: calc(100% - 40px);\n        }\n        .border, input[type=\"radio\" i] {\n          border: 2px solid var(--medium-shade);\n        }\n        .border {\n          position: absolute;\n          top: 0;\n          right: 0;\n          bottom: 0;\n          left: 0;            \n        }\n        input[type=\"radio\" i] {\n          height: 15px;\n          width: 15px;\n          cursor: default;\n          appearance: unset;\n          box-sizing: border-box;\n          margin: 5px 3px 0px 5px;\n          box-sizing: border-box;\n          outline: none;\n          &:checked {\n            background: var(--fg-color);\n            ~ .border {\n              border-color: var(--fg-color);\n              position: absolute;\n              top: 0;\n              right: 0;\n              bottom: 0;\n              left: 0;            \n              border-width: 2px;\n            }\n          }\n        }\n        input::before {\n          height: 15px;\n          width: 15px;\n          background: var(--fg-color);\n        }\n      }\n    }\n  }\n  footer {\n    position: fixed;\n    width: calc(100vw - 20px);\n    height: 150px;\n    bottom: 0;\n    nav {\n      display: flex;\n      height: 150px;\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n      justify-content: space-between;\n      align-items: flex-end;\n      align-content: flex-start;\n      #message {\n        color: var(--bg-color);\n        background: var(--fg-color);\n        font-size: 21px;\n        display: flex;\n        padding: 20px 15px;\n        margin-bottom: 40px;\n        align-items: center;\n        min-height: 30px;\n        text-align: center;\n        pointer-events: none;\n        &.compressed { \n          width: 0px;\n          padding: 0px;\n        }\n        &.reset-animation { animation: none }\n        &.fade-out {\n          animation: fade 1s ease-in 4s;\n          animation-fill-mode: forwards;\n        }\n      }\n      button {\n        font-family: 'Icon';\n        cursor: pointer;\n        outline: none;\n        flex-shrink: 0;\n        font-size: 30px;\n        font-variation-settings: 'wght' 150;\n        height: 70px;\n        width: 70px;\n        margin: 40px 0;\n        padding: 0;\n        &#prev {\n          margin-right: 20px;\n          background: var(--bg-color);\n          border: 2px solid var(--fg-color);\n          &:before {\n            content: 'h';\n          }\n        }\n        &#next {\n          margin-left: 20px;\n          background: var(--fg-color);\n          color: var(--bg-color);\n          border: none;\n          &:before {\n            content: 'l';\n          }\n        }\n      }\n    }\n  }\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n  &:hover, &:focus {\n    transform: scale(1.005);\n    box-shadow: 0 0px 10px 0.5px var(--light-shade);\n  }\n  &:active {\n    transition-duration: 10ms;\n    transform: scale(0.93);\n    box-shadow: none;\n  }\n}\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\nbutton:active {\n  transform: scale(0.99);\n}\n@keyframes fade {\n  from { opacity: 1 }\n  to   { opacity: 0 }\n}\n#bg {\n  z-index: -100;\n  background: url('../images/bg-texture.svg');\n  background-size: cover;\n  display: inline-flex;\n  position: fixed;\n  height: 120vh;\n  top: -10vh;\n  width: 120vw;\n  left: -10vw;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --ice: #c8ffff;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n}\n\nhtml {\n  background: var(--bg-color);\n  color: var(--fg-color);\n}\n\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\n\nbody {\n  user-select: none;\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: \"Theia\";\n  font-weight: 400;\n  line-height: 1.8em;\n}\nbody header {\n  display: flex;\n  flex-shrink: 0;\n  flex-direction: column;\n  background: var(--header-color);\n  height: 100px;\n  justify-content: center;\n}\nbody header h1 {\n  margin: 0;\n  font-family: \"Manufab\";\n  font-variation-settings: \"wght\" 600;\n  font-size: 24px;\n  text-align: center;\n}\nbody main {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\nbody main #question, body main article {\n  display: inline-flex;\n  flex-direction: column;\n  width: 100%;\n  max-width: 540px;\n  margin-top: -5px;\n  background: var(--bg-color);\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n  font-size: 24px;\n  list-style-type: \"> \";\n}\nbody main #question {\n  position: sticky;\n  top: 10px;\n  padding: 20px;\n  padding-left: 60px;\n  z-index: 1000;\n  border: 3px dotted var(--fg-color);\n  box-sizing: border-box;\n}\nbody main article {\n  background: var(--fg-color);\n  color: var(--bg-color);\n  padding: 40px;\n  margin-bottom: 150px;\n}\nbody main article h2 {\n  font-weight: 200;\n}\nbody main article a {\n  color: var(--ice);\n}\nbody main form {\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto;\n  width: calc(100% - 20px);\n  max-width: 470px;\n}\nbody main form label {\n  background-color: var(--mist-trans);\n  display: inline-flex;\n  justify-content: space-between;\n  position: relative;\n  width: calc(100% - 40px);\n  padding: 20px;\n  font-size: 21px;\n  cursor: pointer;\n}\nbody main form label ~ label {\n  margin-top: 20px;\n}\nbody main form label:last-of-type {\n  margin-bottom: 150px;\n}\nbody main form label span {\n  width: calc(100% - 40px);\n}\nbody main form label .border, body main form label input[type=radio i] {\n  border: 2px solid var(--medium-shade);\n}\nbody main form label .border {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\nbody main form label input[type=radio i] {\n  height: 15px;\n  width: 15px;\n  cursor: default;\n  appearance: unset;\n  box-sizing: border-box;\n  margin: 6px 6px 6px 6px;\n  box-sizing: border-box;\n  outline: none;\n}\nbody main form label input[type=radio i]:checked {\n  background: var(--fg-color);\n}\nbody main form label input[type=radio i]:checked ~ .border {\n  border-color: var(--fg-color);\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  border-width: 2px;\n}\nbody main form label input::before {\n  height: 15px;\n  width: 15px;\n  background: var(--fg-color);\n}\nbody footer {\n  position: fixed;\n  width: calc(100vw - 20px);\n  height: 150px;\n  bottom: 0;\n}\nbody footer nav {\n  display: flex;\n  height: 150px;\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  justify-content: space-between;\n  align-items: flex-end;\n  align-content: flex-start;\n}\nbody footer nav #message {\n  color: var(--bg-color);\n  background: var(--fg-color);\n  font-size: 21px;\n  display: flex;\n  padding: 20px 15px;\n  margin-bottom: 40px;\n  align-items: center;\n  min-height: 30px;\n  text-align: center;\n  pointer-events: none;\n}\nbody footer nav #message.compressed {\n  width: 0px;\n  padding: 0px;\n}\nbody footer nav #message.reset-animation {\n  animation: none;\n}\nbody footer nav #message.fade-out {\n  animation: fade 1s ease-in 4s;\n  animation-fill-mode: forwards;\n}\nbody footer nav button {\n  font-family: \"Icon\";\n  cursor: pointer;\n  outline: none;\n  flex-shrink: 0;\n  font-size: 30px;\n  font-variation-settings: \"wght\" 150;\n  height: 70px;\n  width: 70px;\n  margin: 40px 0;\n  padding: 0;\n}\nbody footer nav button#prev {\n  margin-right: 20px;\n  background: var(--bg-color);\n  border: 2px solid var(--fg-color);\n}\nbody footer nav button#prev:before {\n  content: \"h\";\n}\nbody footer nav button#next {\n  margin-left: 20px;\n  background: var(--fg-color);\n  color: var(--bg-color);\n  border: none;\n}\nbody footer nav button#next:before {\n  content: \"l\";\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n}\nbutton:hover, button:focus, label:hover, label:focus {\n  transform: scale(1.005);\n  box-shadow: 0 0px 10px 0.5px var(--light-shade);\n}\nbutton:active, label:active {\n  transition-duration: 10ms;\n  transform: scale(0.93);\n  box-shadow: none;\n}\n\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\n\nbutton:active {\n  transform: scale(0.99);\n}\n\n@keyframes fade {\n  from {\n    opacity: 1;\n  }\n  to {\n    opacity: 0;\n  }\n}\n#bg {\n  z-index: -100;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  background-size: cover;\n  display: inline-flex;\n  position: fixed;\n  height: 120vh;\n  top: -10vh;\n  width: 120vw;\n  left: -10vw;\n}", "",{"version":3,"sources":["webpack://./src/styles/core.scss"],"names":[],"mappings":"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","sourcesContent":[":root {\n  --light-shade: #1111;\n  --medium-shade: #3333;\n  --mist: #fdfeff;\n  --mist-trans: #fdfeff99;\n  --castiron: #332727;\n  --ice: #c8ffff;\n  --bg-color: var(--mist);\n  --fg-color: var(--castiron);\n  --header-bg-color: var(--mist-trans);\n}\nhtml { \n  background: var(--bg-color);\n  color: var(--fg-color); \n}\nbody, header {\n  display: flex;\n  flex-direction: column;\n}\nbody {\n  user-select: none;\n  margin: auto;\n  width: calc(100vw - 20px);\n  height: 100vh;\n  font-family: 'Theia';\n  font-weight: 400;\n  line-height: 1.8em;\n  header {\n    display: flex;\n    flex-shrink: 0;\n    flex-direction: column;\n    background: var(--header-color);\n    height: 100px;\n    justify-content: center;\n    h1 {\n      margin: 0;\n      font-family: 'Manufab';\n      font-variation-settings: 'wght' 600;\n      font-size: 24px;\n      text-align: center;\n    }\n  }\n  main {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    #question, article {\n      display: inline-flex;\n      flex-direction: column;\n      width: 100%;\n      max-width: 540px;\n      margin-top: -5px;\n      background: var(--bg-color);\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n      font-size: 24px;\n      list-style-type: '> ';\n    }\n    #question {\n      position: sticky;\n      top: 10px;\n      padding: 20px;\n      padding-left: 60px;\n      z-index: 1000;\n      border: 3px dotted var(--fg-color);\n      box-sizing: border-box;\n    }\n    article {\n      background: var(--fg-color);\n      color: var(--bg-color);\n      padding: 40px;\n      margin-bottom: 150px;\n      h2 {\n        font-weight: 200;\n      }\n      a { color: var(--ice) }\n    }\n    form {\n      display: flex;\n      flex-wrap: wrap;\n      margin: auto;\n      width: calc(100% - 20px);\n      max-width: 470px;\n      label {\n        background-color: var(--mist-trans);\n        display: inline-flex;\n        justify-content: space-between;\n        position: relative;\n        width: calc(100% - 40px);\n        padding: 20px;\n        font-size: 21px;\n        cursor: pointer;\n        ~ label {\n          margin-top: 20px;\n        }\n        &:last-of-type {\n          margin-bottom: 150px;\n        }\n        span {\n          width: calc(100% - 40px);\n        }\n        .border, input[type=\"radio\" i] {\n          border: 2px solid var(--medium-shade);\n        }\n        .border {\n          position: absolute;\n          top: 0;\n          right: 0;\n          bottom: 0;\n          left: 0;            \n        }\n        input[type=\"radio\" i] {\n          height: 15px;\n          width: 15px;\n          cursor: default;\n          appearance: unset;\n          box-sizing: border-box;\n          margin: 6px 6px 6px 6px;\n          box-sizing: border-box;\n          outline: none;\n          &:checked {\n            background: var(--fg-color);\n            ~ .border {\n              border-color: var(--fg-color);\n              position: absolute;\n              top: 0;\n              right: 0;\n              bottom: 0;\n              left: 0;            \n              border-width: 2px;\n            }\n          }\n        }\n        input::before {\n          height: 15px;\n          width: 15px;\n          background: var(--fg-color);\n        }\n      }\n    }\n  }\n  footer {\n    position: fixed;\n    width: calc(100vw - 20px);\n    height: 150px;\n    bottom: 0;\n    nav {\n      display: flex;\n      height: 150px;\n      width: 100%;\n      max-width: 600px;\n      margin: auto;\n      justify-content: space-between;\n      align-items: flex-end;\n      align-content: flex-start;\n      #message {\n        color: var(--bg-color);\n        background: var(--fg-color);\n        font-size: 21px;\n        display: flex;\n        padding: 20px 15px;\n        margin-bottom: 40px;\n        align-items: center;\n        min-height: 30px;\n        text-align: center;\n        pointer-events: none;\n        &.compressed { \n          width: 0px;\n          padding: 0px;\n        }\n        &.reset-animation { animation: none }\n        &.fade-out {\n          animation: fade 1s ease-in 4s;\n          animation-fill-mode: forwards;\n        }\n      }\n      button {\n        font-family: 'Icon';\n        cursor: pointer;\n        outline: none;\n        flex-shrink: 0;\n        font-size: 30px;\n        font-variation-settings: 'wght' 150;\n        height: 70px;\n        width: 70px;\n        margin: 40px 0;\n        padding: 0;\n        &#prev {\n          margin-right: 20px;\n          background: var(--bg-color);\n          border: 2px solid var(--fg-color);\n          &:before {\n            content: 'h';\n          }\n        }\n        &#next {\n          margin-left: 20px;\n          background: var(--fg-color);\n          color: var(--bg-color);\n          border: none;\n          &:before {\n            content: 'l';\n          }\n        }\n      }\n    }\n  }\n}\n\nbutton, label {\n  transition-property: transform box-shadow;\n  transition-duration: 100ms;\n  transition-timing-function: ease-out;\n  &:hover, &:focus {\n    transform: scale(1.005);\n    box-shadow: 0 0px 10px 0.5px var(--light-shade);\n  }\n  &:active {\n    transition-duration: 10ms;\n    transform: scale(0.93);\n    box-shadow: none;\n  }\n}\nbutton:hover, button:focus {\n  transform: scale(1.01);\n}\nbutton:active {\n  transform: scale(0.99);\n}\n@keyframes fade {\n  from { opacity: 1 }\n  to   { opacity: 0 }\n}\n#bg {\n  z-index: -100;\n  background: url('../images/bg-texture.svg');\n  background-size: cover;\n  display: inline-flex;\n  position: fixed;\n  height: 120vh;\n  top: -10vh;\n  width: 120vw;\n  left: -10vw;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11889,15 +11889,19 @@ function turnPage({ currentPage, toward, leaving }) {
   return toward.shift()
 }
 
-function scoreQuiz(pagesBehind) {
+function scoreQuiz(allPages) {
   let jsTotal = 0
   let rubyTotal = 0
   let hoonTotal = 0
-  for(let idx = 0; idx < pagesBehind.length; idx++) {
-    const page = pagesBehind[idx]
+  for(let idx = 0; idx < allPages.length; idx++) {
+    const page = allPages[idx]
     if(typeof page.idxOfYourAnswer === `undefined`) return
     const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
-    const { js, ruby, hoon } = chosenAnswer.scores
+    const { js, ruby, hoon } = chosenAnswer.scores || {
+      js: 0,
+      ruby: 0,
+      hoon: 0,
+    }
     jsTotal += js
     rubyTotal += ruby
     hoonTotal += hoon
@@ -11966,7 +11970,7 @@ const quizPages = [
         scores: { js: 2, ruby: 0, hoon: 0 },
         myReply:
           `
-          I get it! I wrote that joke!! 😎 *winks from behind sunglasses*
+          I get it!
           `,
       },
       {
@@ -11977,7 +11981,7 @@ const quizPages = [
         scores: { js: 0, ruby: 1, hoon: 2 },
         myReply:
           `
-          Oh boy, do I have the language for you...
+          Oh boy, do I have the language for you!
           `,
       },
     ],
@@ -11989,7 +11993,7 @@ const quizPages = [
       {
         text:
           `
-          Words! Using the right part of speech are the best, even if the word is long. I hate having to remember weird shorthands for things, odd terminology, or arcane symbols.
+          Words! Using the right part of speech is the best practice, even if the word is long. I hate having to remember weird shorthands for things, odd terminology, or arcane symbols.
           `,
         scores: { js: 2, ruby: 1, hoon: 0 },
         myReply:
@@ -12064,7 +12068,7 @@ const quizPages = [
         scores: { js: 2, ruby: 0, hoon: 0 },
         myReply:
           `
-          Sweet! Sounds like you know a lot about programming!
+          Sounds like you have a taste for danger! Careful out there!
           `,
       },
       {
@@ -12075,7 +12079,7 @@ const quizPages = [
         scores: { js: 0, ruby: 2, hoon: 0 },
         myReply:
           `
-          Sweet! Sounds like you know a lot about programming!
+          Very prudent of you.
           `,
       },
       {
@@ -12086,7 +12090,7 @@ const quizPages = [
         scores: { js: 0, ruby: 0, hoon: 2 },
         myReply:
           `
-          Sweet! Sounds like you know a lot about programming!
+          Sounds very safe.
           `,
       },
       {
@@ -12097,8 +12101,294 @@ const quizPages = [
         scores: { js: 0, ruby: 0, hoon: 0 },
         myReply:
           `
-          Sweet! Sounds like you know a lot about programming!
+          How strange! Did you really mean to say this? For what possible reason would you prefer it this way?
           `,
+      },
+    ],
+  },
+  {
+    id: `feedback1`,
+    question:
+      `
+      So, this is pretty good quiz, eh?
+      `,
+    possibleAnswers: [
+      {
+        text:
+          `
+          Yes, it is.
+          `,
+        scores: { js: 1, ruby: 0, hoon: 0 },
+        myReply:
+          `
+          Thank you!
+          `,
+      },
+    ],
+  },
+  {
+    id: `feedback2`,
+    question:
+      `
+      Be honest, what do you really think?
+      `,
+    possibleAnswers: [
+      {
+        text:
+          `
+          It's pretty cool.
+          `,
+        scores: { js: 0, ruby: 0, hoon: 0 },
+        myReply:
+          `
+          Eh, I kinda went overboard...
+          `,
+      },
+      {
+        text:
+          `
+          Um,
+          `,
+        scores: { js: -100, ruby: -100, hoon: -100 },
+        myReply:
+          `
+          Eh, I kinda went overboard...
+          `,
+      },
+    ],
+  },
+  {
+    id: `feedback3`,
+    question:
+      `
+      Sorry. I'll get back to asking questions now.
+      `,
+    possibleAnswers: [
+      {
+        text:
+          `
+          OK.
+          `,
+        scores: { js: 1000, ruby: 1000, hoon: 1000 },
+        myReply:
+          `
+          Let's see...
+          `,
+      },
+    ],
+  },
+  {
+    id: `facebook`,
+    question: `You really hate Facebook. Why do you hate Facebook so much?`,
+    possibleAnswers: [
+      {
+        text: `It's so obnoxious how they always advertise at you.`,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+        myReply: `I hate obnoxious things!`,
+      },
+      {
+        text:
+        `
+        They want to get me hooked on delicious dopamine doses--and strung out big time!
+        `,
+        scores: { js: 0, ruby: 0, hoon: 2 },
+        myReply: `Do you mean like drugs?`,
+      },
+      {
+        text:
+          `
+          I don't like that they're selling my data to the big top secret corporate gubbermint without at LEAST asking me nice!
+          `,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+        myReply: `You tell 'em, partner!`,
+      },
+      {
+        text:
+          `
+          I don't hate Facebook! And This question seems biased.
+          `,
+        scores: { js: 0, ruby: 0, hoon: -100 },
+        myReply:
+          `
+          Okay, wow, get down off your high horse, buddy.
+          `,
+      },
+      {
+        text:
+          `
+          That dang Zuckerbert is a spooky homunculus (monsterman) who haunts me personally on a daily basis.
+          `,
+        scores: { js: 0, ruby: 0, hoon: 20 },
+        myReply: `Yes. So true.`,
+      },
+    ],
+  },
+  {
+    id: `urbit1`,
+    question: `Have you heard of urbit?`,
+    possibleAnswers: [
+      {
+        text:
+          `
+          Yes, hasn't everyone?
+          `,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+        myReply: `Not yet! Tell everyone!`,
+      },
+      {
+        text:
+          `
+          No. What's that?
+          `,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+        myReply: `It's this crazy thing I heard about!`,
+      },
+      {
+        text:
+          `
+          No.
+          `,
+        scores: { js: 0, ruby: 0, hoon: 0 },
+        myReply: `Just wait till you hear!`,
+      },
+      {
+        text:
+          `
+          No. I feel like you're just wasting time at this point.
+          `,
+        scores: { js: 0, ruby: 0, hoon: -1 },
+        myReply: `Excuse me, I'm running a quiz here.`,
+      },
+    ],
+  },
+  {
+    id: `urbit2`,
+    question:
+      `
+      What are your feelings, if any, about the following statement:
+      `,
+    possibleAnswers: [
+      {
+        text:
+          `
+          ...
+          `,
+        reply: `*ahem*`,
+      },
+    ],
+  },
+  {
+    id: `urbit2`,
+    question:
+      `
+      "Urbit is a clean-slate OS and network for the 21st century."
+      `,
+    possibleAnswers: [
+      {
+        text: `Very good`,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+      },
+      {
+        text: `Neutral`,
+      },
+      {
+        text: `Very bad`,
+        scores: { js: 0, ruby: 0, hoon: -100 },
+      },
+    ],
+  },
+  {
+    id: `urbit3`,
+    question:
+      `
+      Thank you... And what about the following statement:
+      `,
+    possibleAnswers: [
+      { text: `...` },
+    ],
+  },
+  {
+    id: `urbit4`,
+    question:
+      `
+      "Urbit OS is a reimagining of the operating system as an ‘overlay OS.’ \n \n
+      It's a compact system for an individual to run their own permanent personal server on any Unix machine with an internet connection.
+      "
+      `,
+    possibleAnswers: [
+      {
+        text: `Strongly Agree`,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+      },
+      {
+        text: `Agree`,
+      },
+      {
+        text: `Neither Agree nor Disagree`,
+      },
+    ],
+  },
+  {
+    id: `urbit5`,
+    question:
+      `
+      Your response has been... Yes, there's another one:
+      `,
+    possibleAnswers: [
+      { text: `...` },
+    ],
+  },
+  {
+    id: `urbit6`,
+    question:
+      `
+      "Urbit ID is a decentralized digital identity system. Your Urbit ID is a username, network address, and crypto wallet."
+      `,
+    possibleAnswers: [
+      {
+        text: `Emphatically Agree`,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+      },
+      {
+        text: `Resignedly Agree`,
+      },
+    ],
+  },
+  {
+    id: `urbit7`,
+    question:
+      `
+      Just one more:
+      `,
+    possibleAnswers: [
+      { text: `...` },
+    ],
+  },
+  {
+    id: `urbit8`,
+    question:
+      `
+      Urbit OS + Urbit ID are designed to work together as a single system, are completely open source, and 100% owned by the people who use them.
+      `,
+    possibleAnswers: [
+      {
+        text: `Wow, amazing! Can learn more about it on a weird website?`,
+        scores: { js: 0, ruby: 0, hoon: 100 },
+      },
+      {
+        text: `This is so annoying. Can I be done now?`,
+      },
+    ],
+  },
+  {
+    id: `urbit9`,
+    question:
+      `
+      Yes you can
+      `,
+    possibleAnswers: [
+      {
+        text: `Oh?`,
       },
     ],
   },
@@ -12128,7 +12418,7 @@ const possibleResults = {
     nameOfLanguage: `Hoon`,
     description:
       `
-      Hoon is a esoteric language designed for the peer-to-peer networking platform Urbit. Hoon is a functional language (meaning everything is input-output, with NO side-effects) with a highly idiosyncratic syntax made of what urbiters call 'runes.' |= 'bartis', ++ 'luslus',  and ?> 'wutgar', are a few of the many, many examples. Don't ask me what they do, because I don't remember. I just think hoon is pretty and would love to learn to write it one day.
+      Hoon is a esoteric language designed for the peer-to-peer networking platform Urbit. Hoon is a functional language (meaning everything is input-output, with NO side-effects) with a highly idiosyncratic syntax made of what urbiters call 'runes.' |= 'bartis', ++ 'luslus',  and ?> 'wutgar', are a few of the many, many examples. Don't ask me what they do, because I don't remember. I just think hoon is pretty and would love to learn to write it one day. Maybe we can learn it together!
       `,
     url: `https://urbit.org/docs/glossary/hoon/`,
   },
@@ -12256,7 +12546,9 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
       const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
       if(youDidAnswer) {
         const yourAnswer = pageMemo.possibleAnswers[idxOfYourAnswer]
-        ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(yourAnswer.myReply)
+        const iHaveSomethingToSay = !!yourAnswer.myReply
+        console.log(yourAnswer.myReply)
+        if(iHaveSomethingToSay) (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(yourAnswer.myReply)
       }
       (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
     } else if(pagesAhead.length === 0) { // try to grade quiz
