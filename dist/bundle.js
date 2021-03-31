@@ -11886,7 +11886,8 @@ __webpack_require__.r(__webpack_exports__);
 function turnPage({ currentPage, toward, leaving }) {
   if(toward.length === 0) return
   if(currentPage) leaving.unshift(currentPage)
-  return toward.shift()
+  const nextPage = toward.shift()
+  return nextPage
 }
 
 function scoreQuiz(allPages) {
@@ -11895,13 +11896,12 @@ function scoreQuiz(allPages) {
   let hoonTotal = 0
   for(let idx = 0; idx < allPages.length; idx++) {
     const page = allPages[idx]
-    if(typeof page.idxOfYourAnswer === `undefined`) return
-    const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
-    const { js, ruby, hoon } = chosenAnswer.scores || {
-      js: 0,
-      ruby: 0,
-      hoon: 0,
-    }
+    const { possibleAnswers, idxOfYourAnswer } = page
+    const quizIsUnfinished = typeof idxOfYourAnswer === `undefined`
+    if(quizIsUnfinished) return // quiz fails inspection!
+    const yourAnswer = possibleAnswers[idxOfYourAnswer]
+    const { scores } = yourAnswer
+    const { js, ruby, hoon } = scores || { js: 0, ruby: 0, hoon: 0 }
     jsTotal += js
     rubyTotal += ruby
     hoonTotal += hoon
@@ -12541,8 +12541,8 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
 
   jquery__WEBPACK_IMPORTED_MODULE_2___default()(`button`).on(`click`, e => {
     e.preventDefault()
-    const pageMemo = currentPage
     const buttonId = e.target.id
+    const pageMemo = currentPage
     const [toward, leaving] = (() => {
       switch(buttonId) {
         case `next`: return [pagesAhead, pagesBehind]
@@ -12552,7 +12552,8 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
     })()
     currentPage = (0,_core__WEBPACK_IMPORTED_MODULE_5__.turnPage)({ currentPage, toward, leaving })
     const aPageWasFound = !!currentPage
-    if(aPageWasFound) { // move along to next question
+    if(aPageWasFound) {
+      (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
       const { idxOfYourAnswer } = pageMemo
       const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
       if(youDidAnswer) {
@@ -12560,19 +12561,18 @@ jquery__WEBPACK_IMPORTED_MODULE_2___default()(() => {
         const iHaveSomethingToSay = !!yourAnswer.myReply
         if(iHaveSomethingToSay) (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(yourAnswer.myReply)
       }
-      (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printQuizPage)(currentPage)
-    } else if(pagesAhead.length === 0) { // try to grade quiz
+    } else if(pagesAhead.length === 0) { // you reached the end and hit '->'
       const scoreSheet = (0,_core__WEBPACK_IMPORTED_MODULE_5__.scoreQuiz)([...pagesBehind, pageMemo])
       const quizPassedInspection = !!scoreSheet
       if(quizPassedInspection) {
         const idOfWinner = (0,_core__WEBPACK_IMPORTED_MODULE_5__.determineWinner)(scoreSheet)
         const quizResult = _quiz__WEBPACK_IMPORTED_MODULE_4__.possibleResults[idOfWinner]
         ;(0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$printScorePage)(quizResult)
-      } else {
+      } else { // the quiz failed inspection because answers were missing
         (0,_$macros__WEBPACK_IMPORTED_MODULE_3__.$showNewMessage)(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
-    } else { // you're at the start of the quiz and nothing happens
+    } else { // you clicked '<-' on the first page. Nice try!
       currentPage = pageMemo
     }
   })

@@ -18,8 +18,8 @@ $(() => {
 
   $(`button`).on(`click`, e => {
     e.preventDefault()
-    const pageMemo = currentPage
     const buttonId = e.target.id
+    const pageMemo = currentPage
     const [toward, leaving] = (() => {
       switch(buttonId) {
         case `next`: return [pagesAhead, pagesBehind]
@@ -29,7 +29,8 @@ $(() => {
     })()
     currentPage = turnPage({ currentPage, toward, leaving })
     const aPageWasFound = !!currentPage
-    if(aPageWasFound) { // move along to next question
+    if(aPageWasFound) {
+      $printQuizPage(currentPage)
       const { idxOfYourAnswer } = pageMemo
       const youDidAnswer = typeof idxOfYourAnswer !== `undefined`
       if(youDidAnswer) {
@@ -37,19 +38,18 @@ $(() => {
         const iHaveSomethingToSay = !!yourAnswer.myReply
         if(iHaveSomethingToSay) $showNewMessage(yourAnswer.myReply)
       }
-      $printQuizPage(currentPage)
-    } else if(pagesAhead.length === 0) { // try to grade quiz
+    } else if(pagesAhead.length === 0) { // you reached the end and hit '->'
       const scoreSheet = scoreQuiz([...pagesBehind, pageMemo])
       const quizPassedInspection = !!scoreSheet
       if(quizPassedInspection) {
         const idOfWinner = determineWinner(scoreSheet)
         const quizResult = possibleResults[idOfWinner]
         $printScorePage(quizResult)
-      } else {
+      } else { // the quiz failed inspection because answers were missing
         $showNewMessage(`Hey, finish the quiz before submitting!`)
         currentPage = pageMemo
       }
-    } else { // you're at the start of the quiz and nothing happens
+    } else { // you clicked '<-' on the first page. Nice try!
       currentPage = pageMemo
     }
   })

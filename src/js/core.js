@@ -7,7 +7,8 @@ export {
 function turnPage({ currentPage, toward, leaving }) {
   if(toward.length === 0) return
   if(currentPage) leaving.unshift(currentPage)
-  return toward.shift()
+  const nextPage = toward.shift()
+  return nextPage
 }
 
 function scoreQuiz(allPages) {
@@ -16,13 +17,12 @@ function scoreQuiz(allPages) {
   let hoonTotal = 0
   for(let idx = 0; idx < allPages.length; idx++) {
     const page = allPages[idx]
-    if(typeof page.idxOfYourAnswer === `undefined`) return
-    const chosenAnswer = page.possibleAnswers[page.idxOfYourAnswer]
-    const { js, ruby, hoon } = chosenAnswer.scores || {
-      js: 0,
-      ruby: 0,
-      hoon: 0,
-    }
+    const { possibleAnswers, idxOfYourAnswer } = page
+    const quizIsUnfinished = typeof idxOfYourAnswer === `undefined`
+    if(quizIsUnfinished) return // quiz fails inspection!
+    const yourAnswer = possibleAnswers[idxOfYourAnswer]
+    const { scores } = yourAnswer
+    const { js, ruby, hoon } = scores || { js: 0, ruby: 0, hoon: 0 }
     jsTotal += js
     rubyTotal += ruby
     hoonTotal += hoon
