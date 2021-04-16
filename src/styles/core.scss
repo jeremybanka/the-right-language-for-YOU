@@ -9,11 +9,12 @@
   --fg-color: var(--castiron);
   --header-bg-color: var(--mist-trans);
 }
-html { 
+html {
   background: var(--bg-color);
-  color: var(--fg-color); 
+  color: var(--fg-color);
 }
-body, header {
+body,
+header {
   display: flex;
   flex-direction: column;
 }
@@ -22,7 +23,7 @@ body {
   margin: auto;
   width: calc(100vw - 20px);
   height: 100vh;
-  font-family: 'Theia';
+  font-family: "Theia";
   font-weight: 400;
   line-height: 1.8em;
   header {
@@ -34,8 +35,8 @@ body {
     justify-content: center;
     h1 {
       margin: 0;
-      font-family: 'Manufab';
-      font-variation-settings: 'wght' 600;
+      font-family: "Manufab";
+      font-variation-settings: "wght" 600;
       font-size: 24px;
       text-align: center;
     }
@@ -44,7 +45,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    #question, article {
+    #question,
+    article {
       display: inline-flex;
       flex-direction: column;
       width: 100%;
@@ -54,7 +56,7 @@ body {
       border: 3px dotted var(--fg-color);
       box-sizing: border-box;
       font-size: 24px;
-      list-style-type: '> ';
+      list-style-type: "> ";
     }
     #question {
       position: sticky;
@@ -73,7 +75,9 @@ body {
       h2 {
         font-weight: 200;
       }
-      a { color: var(--ice) }
+      a {
+        color: var(--ice);
+      }
     }
     form {
       display: flex;
@@ -99,7 +103,8 @@ body {
         span {
           width: calc(100% - 40px);
         }
-        .border, input[type="radio" i] {
+        .border,
+        input[type="radio" i] {
           border: 2px solid var(--medium-shade);
         }
         .border {
@@ -107,7 +112,7 @@ body {
           top: 0;
           right: 0;
           bottom: 0;
-          left: 0;            
+          left: 0;
         }
         input[type="radio" i] {
           height: 15px;
@@ -122,11 +127,6 @@ body {
             background: var(--fg-color);
             ~ .border {
               border-color: var(--fg-color);
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;            
               border-width: 2px;
             }
           }
@@ -164,23 +164,25 @@ body {
         min-height: 30px;
         text-align: center;
         pointer-events: none;
-        &.compressed { 
+        &.compressed {
           width: 0px;
           padding: 0px;
         }
-        &.reset-animation { animation: none }
+        &.reset-animation {
+          animation: none;
+        }
         &.fade-out {
           animation: fade 1s ease-in 4s;
           animation-fill-mode: forwards;
         }
       }
       button {
-        font-family: 'Icon';
+        font-family: "Icon";
         cursor: pointer;
         outline: none;
         flex-shrink: 0;
         font-size: 30px;
-        font-variation-settings: 'wght' 150;
+        font-variation-settings: "wght" 150;
         height: 70px;
         width: 70px;
         margin: 40px 0;
@@ -190,7 +192,7 @@ body {
           background: var(--bg-color);
           border: 2px solid var(--fg-color);
           &:before {
-            content: 'h';
+            content: "h";
           }
         }
         &#next {
@@ -199,7 +201,7 @@ body {
           color: var(--bg-color);
           border: none;
           &:before {
-            content: 'l';
+            content: "l";
           }
         }
       }
@@ -207,11 +209,13 @@ body {
   }
 }
 
-button, label {
+button,
+label {
   transition-property: transform box-shadow;
   transition-duration: 100ms;
   transition-timing-function: ease-out;
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     transform: scale(1.005);
     box-shadow: 0 0px 10px 0.5px var(--light-shade);
   }
@@ -221,19 +225,24 @@ button, label {
     box-shadow: none;
   }
 }
-button:hover, button:focus {
+button:hover,
+button:focus {
   transform: scale(1.01);
 }
 button:active {
   transform: scale(0.99);
 }
 @keyframes fade {
-  from { opacity: 1 }
-  to   { opacity: 0 }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 #bg {
   z-index: -100;
-  background: url('../images/bg-texture.svg');
+  background: url("../images/bg-texture.svg");
   background-size: cover;
   display: inline-flex;
   position: fixed;
